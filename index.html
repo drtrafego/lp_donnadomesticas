@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operação Casa Organizada - Evento Gratuito</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #4a5f3f;
+            --secondary: #6b8e5f;
+            --accent: #9cbd5f;
+            --dark: #1a1a1a;
+            --light: #f9f9f6;
+            --text: #2d2d2d;
+            --text-light: #666;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: #fff;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            line-height: 1.1;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 1.2rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(10px);
+        }
+
+        .header-content {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        nav a {
+            margin: 0 1.5rem;
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(74, 95, 63, 0.25);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(74, 95, 63, 0.35);
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%234a5f3f" width="1200" height="600"/><circle cx="200" cy="100" r="150" fill="%236b8e5f" opacity="0.3"/><circle cx="1000" cy="500" r="200" fill="%239cbd5f" opacity="0.2"/><path d="M0 300 Q300 200 600 300 T1200 300 L1200 600 L0 600 Z" fill="%23f5f5f2" opacity="0.05"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 60px 2rem 50px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 700px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, rgba(74, 95, 63, 0.7) 0%, rgba(107, 142, 95, 0.8) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 0.6rem 1.5rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 10vw, 4.5rem);
+            margin-bottom: 1rem;
+            line-height: 1.1;
+            font-weight: 700;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero h1 strong {
+            background: linear-gradient(120deg, #fff 0%, #e0e0e0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.95;
+            line-height: 1.5;
+            font-weight: 300;
+        }
+
+        .hero-cta {
+            display: inline-block;
+            background: white;
+            color: var(--primary);
+            padding: 1.1rem 3rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+            border: none;
+            cursor: pointer;
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-info {
+            margin-top: 2rem;
+            font-size: 0.95rem;
+            opacity: 0.9;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        /* ===== PROBLEMA SECTION ===== */
+        .problem-section {
+            max-width: 1100px;
+            margin: 50px auto;
+            padding: 0 2rem;
+        }
+
+        .problem-section h2 {
+            font-size: clamp(2rem, 7vw, 3.2rem);
+            color: var(--primary);
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .problem-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.320, 1);
+            box-shadow: 0 8px 32px rgba(74, 95, 63, 0.12);
+            border: 2px solid transparent;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .problem-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 100%);
+            opacity: 0;
+            transition: opacity 0.4s;
+            z-index: -1;
+        }
+
+        .problem-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 16px 48px rgba(74, 95, 63, 0.25);
+            border-color: var(--secondary);
+        }
+
+        .problem-card:hover::after {
+            opacity: 0.05;
+        }
+
+        .problem-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--accent), var(--secondary));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 15px rgba(156, 189, 95, 0.3);
+            transition: all 0.3s;
+        }
+
+        .problem-card:hover .problem-icon {
+            transform: rotate(5deg) scale(1.1);
+            box-shadow: 0 8px 25px rgba(156, 189, 95, 0.4);
+        }
+
+        .problem-card p {
+            font-size: 1.15rem;
+            line-height: 1.7;
+            color: var(--text);
+            font-weight: 500;
+        }
+
+        .problem-card strong {
+            color: var(--primary);
+            font-weight: 700;
+        }
+
+        .problem-solution {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 2rem;
+            box-shadow: 0 8px 30px rgba(74, 95, 63, 0.3);
+        }
+
+        .problem-solution h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .problem-solution p {
+            font-size: 1.1rem;
+            opacity: 0.95;
+            line-height: 1.7;
+        }
+
+        /* ===== APRENDER SECTION ===== */
+        .aprender-section {
+            background: var(--light);
+            padding: 50px 2rem;
+        }
+
+        .aprender-content {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .aprender-section h2 {
+            font-size: clamp(2rem, 7vw, 3.2rem);
+            color: var(--primary);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .aprender-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            color: var(--secondary);
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .aprender-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .aprender-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            border-top: 4px solid var(--accent);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .aprender-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -50px;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--accent), transparent);
+            opacity: 0.1;
+            border-radius: 50%;
+        }
+
+        .aprender-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .aprender-card h4 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+        }
+
+        .aprender-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* ===== HISTORIA SECTION ===== */
+        .historia-section {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .historia-img {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            height: 450px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 5rem;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(74, 95, 63, 0.3);
+        }
+
+        .historia-img::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            top: -100px;
+            right: -100px;
+        }
+
+        .historia-img svg {
+            position: relative;
+            z-index: 2;
+        }
+
+        .historia-text h2 {
+            font-size: clamp(2rem, 6vw, 3rem);
+            color: var(--primary);
+            margin-bottom: 1.5rem;
+        }
+
+        .historia-text p {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--text);
+            margin-bottom: 1.3rem;
+        }
+
+        .historia-text strong {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .historia-text .highlight {
+            font-size: 1.3rem;
+            color: var(--secondary);
+            font-weight: 600;
+            margin: 1.5rem 0;
+        }
+
+        /* ===== STATS SECTION ===== */
+        .stats-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 80px 2rem;
+            margin: 50px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stats-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+        }
+
+        .stats-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            transition: all 0.3s;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .stat-item:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.95;
+            font-weight: 500;
+        }
+
+        /* ===== BENEFICIOS SECTION ===== */
+        .beneficios-section {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 2rem;
+        }
+
+        .beneficios-section h2 {
+            font-size: clamp(2rem, 7vw, 3.2rem);
+            color: var(--primary);
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .beneficios-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .benefit-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+            border: 1px solid rgba(74, 95, 63, 0.1);
+            position: relative;
+        }
+
+        .benefit-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--secondary));
+            border-radius: 12px 12px 0 0;
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
+        }
+
+        .benefit-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.2rem;
+            display: block;
+            color: var(--accent);
+            width: 100%;
+            text-align: center;
+        }
+
+        .benefit-card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+        }
+
+        .benefit-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* ===== DEPOIMENTOS SECTION ===== */
+        .depoimentos-section {
+            background: var(--light);
+            padding: 80px 2rem;
+        }
+
+        .depoimentos-content {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .depoimentos-section h2 {
+            font-size: clamp(2rem, 7vw, 3.2rem);
+            color: var(--primary);
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .depoimentos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .depoimento-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+        }
+
+        .depoimento-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .depoimento-stars {
+            color: var(--accent);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .depoimento-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            color: var(--text);
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .depoimento-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .author-info h4 {
+            color: var(--primary);
+            font-size: 0.95rem;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .author-info p {
+            color: var(--text-light);
+            font-size: 0.85rem;
+            margin: 0;
+        }
+
+        /* ===== CTA FINAL SECTION ===== */
+        .cta-final-section {
+            max-width: 1000px;
+            margin: 50px auto;
+            padding: 60px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 16px;
+            color: white;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(74, 95, 63, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-final-section::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+
+        .cta-final-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-final-section h2 {
+            font-size: clamp(1.8rem, 6vw, 2.8rem);
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-final-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+        }
+
+        .cta-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin: 2.5rem 0;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .cta-info-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .cta-info-label {
+            font-size: 0.9rem;
+            opacity: 0.85;
+        }
+
+        .cta-info-value {
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .cta-final-btn {
+            display: inline-block;
+            background: white;
+            color: var(--primary);
+            padding: 1.2rem 3.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+            margin-top: 1.5rem;
+        }
+
+        .cta-final-btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.35);
+        }
+
+        /* ===== FORM STYLES ===== */
+        .form-image-placeholder {
+            width: 100%;
+            max-width: 300px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.2);
+            border: 2px dashed rgba(255, 255, 255, 0.5);
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 2rem auto;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 3rem;
+        }
+
+        .form-image-placeholder p {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .signup-form {
+            max-width: 400px;
+            margin: 2rem auto 0;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .form-group {
+            display: flex;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 1rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-family: 'Poppins', sans-serif;
+            background: rgba(255, 255, 255, 0.95);
+            color: var(--text);
+            transition: all 0.3s;
+        }
+
+        .form-group input::placeholder {
+            color: #999;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 4rem 2rem 2rem;
+            margin-top: 80px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-section h4 {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .footer-section p, .footer-section a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.9rem;
+            line-height: 1.8;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .fade-in {
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .historia-section {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                margin: 60px auto;
+            }
+
+            .hero-info {
+                gap: 1rem;
+            }
+
+            .cta-final-section {
+                padding: 3rem 2rem;
+                margin: 60px 2rem;
+            }
+
+            .signup-form {
+                max-width: 100%;
+            }
+
+            .beneficios-grid,
+            .depoimentos-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+
+            h2 {
+                font-size: 1.8rem !important;
+            }
+
+            .stats-content {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
+            }
+
+            .stat-number {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-badge">🔴 OPERAÇÃO CASA ORGANIZADA</div>
+            <h1>Sua casa não precisa de<br>mais <strong>esforço</strong><br>Ela precisa de <strong>direção</strong></h1>
+            <p class="hero-subtitle">Evento 100% online e gratuito com método inovador para organizar sua casa sem culpa</p>
+            <div class="hero-info">
+                <span>📅 10/03/2026</span>
+                <span>🕘 20h00</span>
+                <span>📱 YouTube Live</span>
+            </div>
+            <button class="hero-cta" onclick="scrollToId('cta')">🔘 Quero participar agora</button>
+        </div>
+    </section>
+
+    <!-- PROBLEMA SECTION -->
+    <section class="problem-section">
+        <h2>Se você sente que...</h2>
+        <div class="problem-grid">
+            <div class="problem-card">
+                <div class="problem-icon">🔄</div>
+                <p><strong>Faz muito</strong> e nunca termina</p>
+            </div>
+            <div class="problem-card">
+                <div class="problem-icon">🚨</div>
+                <p><strong>Vive apagando incêndio</strong> dentro de casa</p>
+            </div>
+            <div class="problem-card">
+                <div class="problem-icon">🧠</div>
+                <p><strong>Pensa na casa</strong> o dia inteiro</p>
+            </div>
+            <div class="problem-card">
+                <div class="problem-icon">⚡</div>
+                <p><strong>Improvisa a rotina</strong> todos os dias</p>
+            </div>
+        </div>
+        <div class="problem-solution">
+            <h3>O problema NÃO é falta de vontade</h3>
+            <p>É falta de <strong>MÉTODO</strong>. Na Operação Casa Organizada, você vai aprender como organizar sua rotina doméstica com clareza, lógica e inteligência, fazendo tudo sozinha ou trabalhando fora.</p>
+            <button class="btn-primary" style="margin-top: 1.5rem;" onclick="scrollToId('cta')">Garantir minha vaga</button>
+        </div>
+    </section>
+
+    <!-- APRENDER SECTION -->
+    <section class="aprender-section" id="aprender">
+        <div class="aprender-content">
+            <h2>O que você vai aprender</h2>
+            <p class="aprender-subtitle">Não é faxina. Não é dica solta. É MÉTODO.</p>
+            <div class="aprender-grid">
+                <div class="aprender-card">
+                    <h4>✓ Por que sua casa nunca se mantém organizada</h4>
+                    <p>Mesmo quando você se esforça muito</p>
+                </div>
+                <div class="aprender-card">
+                    <h4>✓ O erro invisível que custa tempo e energia</h4>
+                    <p>E como você está gastando recursos sem resultado real</p>
+                </div>
+                <div class="aprender-card">
+                    <h4>✓ Como parar de improvisar a rotina</h4>
+                    <p>E começar a ter previsibilidade no seu dia a dia</p>
+                </div>
+                <div class="aprender-card">
+                    <h4>✓ O que vem ANTES da limpeza</h4>
+                    <p>Para a casa realmente funcionar por conta própria</p>
+                </div>
+                <div class="aprender-card">
+                    <h4>✓ Como ter casa organizada SEM culpa</h4>
+                    <p>Sem viver cansada ou cobrada, sem fórmulas irreais</p>
+                </div>
+                <div class="aprender-card">
+                    <h4>✓ O método passo a passo</h4>
+                    <p>Simples, possível e aplicável à sua realidade</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HISTÓRIA SECTION -->
+    <section class="historia-section" id="historia">
+        <div class="historia-img">
+            <svg width="150" height="150" viewBox="0 0 150 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="75" cy="60" r="35" fill="white" opacity="0.9"/>
+                <path d="M40 110 Q75 95 110 110 L115 150 Q75 140 35 150 Z" fill="white" opacity="0.8"/>
+            </svg>
+        </div>
+        <div class="historia-text">
+            <h2>A história de Luciane</h2>
+            <p>Por <strong>mais de 23 anos</strong>, Luciane organizou, administrou e treinou rotinas dentro de casas reais.</p>
+            <p><strong>Casas com funcionária. Casas sem ajuda nenhuma. Casas onde a dona estava exausta, perdida e sobrecarregada.</strong></p>
+            <p>Ao longo desses anos, ela percebeu algo que <strong>ninguém falava</strong>:</p>
+            <p class="highlight">O problema das casas não é <strong>limpeza</strong>. É <strong>falta de direção</strong>.</p>
+            <p>Foi assim que nasceu um método <strong>simples, possível e aplicável</strong> à vida real, pensado para mulheres que cuidam da casa, da família e, muitas vezes, de <strong>tudo sozinhas</strong>.</p>
+            <p><strong>Esse evento é o primeiro passo para você entender esse MÉTODO.</strong></p>
+            <button class="btn-primary" onclick="scrollToId('cta')" style="margin-top: 1.5rem;">Quero aprender com Luciane</button>
+        </div>
+    </section>
+
+    <!-- STATS SECTION -->
+    <section class="stats-section">
+        <div class="stats-content">
+            <div class="stat-item">
+                <span class="stat-number">500+</span>
+                <span class="stat-label">Mulheres transformadas</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">23+</span>
+                <span class="stat-label">Anos de experiência</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">1000+</span>
+                <span class="stat-label">Casas organizadas</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number">98%</span>
+                <span class="stat-label">Taxa de satisfação</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- BENEFÍCIOS SECTION -->
+    <section class="beneficios-section" id="beneficios">
+        <h2>Benefícios da Operação</h2>
+        <div class="beneficios-grid">
+            <div class="benefit-card">
+                <i class="benefit-icon fas fa-home"></i>
+                <h3>Casa Organizada</h3>
+                <p>Uma casa que funciona por lógica, não por acaso</p>
+            </div>
+            <div class="benefit-card">
+                <i class="benefit-icon fas fa-hourglass-end"></i>
+                <h3>Mais Tempo</h3>
+                <p>Recupere horas preciosas na sua semana</p>
+            </div>
+            <div class="benefit-card">
+                <i class="benefit-icon fas fa-smile"></i>
+                <h3>Menos Estresse</h3>
+                <p>Viva sem culpa e sem pressão constante</p>
+            </div>
+            <div class="benefit-card">
+                <i class="benefit-icon fas fa-lightbulb"></i>
+                <h3>Clareza Total</h3>
+                <p>Entenda exatamente como sua casa funciona</p>
+            </div>
+            <div class="benefit-card">
+                <i class="benefit-icon fas fa-robot"></i>
+                <h3>Autonomia</h3>
+                <p>Sua casa se mantém organizada sozinha</p>
+            </div>
+            <div class="benefit-card">
+                <i class="benefit-icon fas fa-book"></i>
+                <h3>Método Simples</h3>
+                <p>Sem complicação, sem fórmulas irreais</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- DEPOIMENTOS SECTION -->
+    <section class="depoimentos-section">
+        <div class="depoimentos-content">
+            <h2>O que nossas alunas dizem</h2>
+            <div class="depoimentos-grid">
+                <div class="depoimento-card">
+                    <div class="depoimento-stars">★★★★★</div>
+                    <p class="depoimento-text">"Depois do método da Luciane, finalmente entendi por que minha casa nunca se mantinha. Agora tenho rotina, previsibilidade e paz mental!"</p>
+                    <div class="depoimento-author">
+                        <div class="author-avatar">M</div>
+                        <div class="author-info">
+                            <h4>Mariana S.</h4>
+                            <p>São Paulo, SP</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="depoimento-card">
+                    <div class="depoimento-stars">★★★★★</div>
+                    <p class="depoimento-text">"Não é faxina. Não é dica solta. É realmente um método que funciona. Minha vida mudou completamente!"</p>
+                    <div class="depoimento-author">
+                        <div class="author-avatar">P</div>
+                        <div class="author-info">
+                            <h4>Paula R.</h4>
+                            <p>Rio de Janeiro, RJ</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="depoimento-card">
+                    <div class="depoimento-stars">★★★★★</div>
+                    <p class="depoimento-text">"Trabalho fora e cuidava da casa sozinha. Estava exausta. O método da Luciane me ajudou sem sacrificar meu bem-estar."</p>
+                    <div class="depoimento-author">
+                        <div class="author-avatar">F</div>
+                        <div class="author-info">
+                            <h4>Fernanda M.</h4>
+                            <p>Belo Horizonte, MG</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA FINAL SECTION -->
+    <section class="cta-final-section" id="cta">
+        <div class="cta-final-content">
+            <h2>Pronto para participar?</h2>
+            <p>Inscreva-se agora e garanta seu lugar no evento</p>
+            
+            <div class="cta-info">
+                <div class="cta-info-item">
+                    <span class="cta-info-label">📅 Data</span>
+                    <span class="cta-info-value">10 de Março</span>
+                </div>
+                <div class="cta-info-item">
+                    <span class="cta-info-label">🕘 Horário</span>
+                    <span class="cta-info-value">20h00</span>
+                </div>
+                <div class="cta-info-item">
+                    <span class="cta-info-label">📱 Plataforma</span>
+                    <span class="cta-info-value">YouTube Live</span>
+                </div>
+                <div class="cta-info-item">
+                    <span class="cta-info-label">💰 Investimento</span>
+                    <span class="cta-info-value">100% Grátis</span>
+                </div>
+            </div>
+
+            <form class="signup-form" onsubmit="handleSubmit(event)">
+                <div class="form-group">
+                    <input type="text" name="nome" placeholder="Seu nome completo" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Seu melhor email" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" name="telefone" placeholder="Seu telefone" required>
+                </div>
+                <button type="submit" class="cta-final-btn">🔘 Sim, quero participar!</button>
+            </form>
+            <p style="margin-top: 1.5rem; opacity: 0.85; font-size: 0.9rem;">Vagas limitadas. Inscrição garantida até 10/03</p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Operação Casa Organizada</h4>
+                <p>Transformando casas através de método, não magia. Um evento que muda perspectivas sobre organização doméstica.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Links Rápidos</h4>
+                <a href="#historia">Sobre Luciane</a><br>
+                <a href="#aprender">O que aprende</a><br>
+                <a href="#beneficios">Benefícios</a><br>
+                <a href="#cta">Inscrever-se</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contato</h4>
+                <p>📧 contato@lucianacoutinho.com<br>
+                📱 WhatsApp: (11) 99999-9999<br>
+                🌐 www.lucianacoutinho.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Operação Casa Organizada - Luciana Coutinho. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            const form = event.target;
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData);
+            
+            // Log do formulário (você pode conectar a uma API aqui)
+            console.log('Formulário enviado:', data);
+            
+            // Mostrar mensagem de sucesso
+            alert(`Obrigado ${data.nome}! Você foi inscrito. Verifique seu email em ${data.email}`);
+            
+            // Limpar o formulário
+            form.reset();
+        }
+
+        function scrollToId(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        // Smooth scroll para todos os links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    scrollToId(href.slice(1));
+                }
+            });
+        });
+
+        // Intersection Observer para fade-in
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observar cards
+        document.querySelectorAll('.problem-card, .aprender-card, .benefit-card, .depoimento-card').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
