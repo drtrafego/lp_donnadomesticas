@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operação Casa Organizada - Evento Gratuito</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #4a5f3f;
+            --secondary-color: #6b8e5f;
+            --accent-color: #9cbd5f;
+            --dark-color: #2d3d28;
+            --light-color: #f5f5f2;
+            --text-color: #2d2d2d;
+            --text-light: #666;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #fff;
+        }
+
+        /* ===== HEADER ===== */
+        header {
+            background: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        nav a {
+            margin-left: 2rem;
+            color: var(--text-color);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .cta-btn {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s, transform 0.2s;
+            border: none;
+            cursor: pointer;
+            font-size: 0.95rem;
+        }
+
+        .cta-btn:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        /* ===== HERO SECTION ===== */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 60px 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-date {
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+
+        .hero h1 {
+            font-size: clamp(2rem, 8vw, 3.5rem);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            line-height: 1.4;
+        }
+
+        .hero-cta {
+            display: inline-block;
+            background: white;
+            color: var(--primary-color);
+            padding: 1rem 2.5rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .hero-cta:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        /* ===== SECTION QUEBRA ===== */
+        .quebra {
+            max-width: 1000px;
+            margin: 60px auto;
+            padding: 0 2rem;
+        }
+
+        .quebra-title {
+            font-size: clamp(1.5rem, 5vw, 2.5rem);
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+
+        .quebra-content {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--text-color);
+            margin-bottom: 2rem;
+        }
+
+        .quebra p {
+            margin-bottom: 1rem;
+        }
+
+        .problem-list {
+            background: #f9f9f7;
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .problem-list p {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+        }
+
+        .problem-list p:before {
+            content: '◆ ';
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+
+        .quebra-cta {
+            display: inline-block;
+            margin-top: 1.5rem;
+        }
+
+        /* ===== SECTION APRENDER ===== */
+        .aprender {
+            background: white;
+            padding: 60px 2rem;
+            margin-bottom: 60px;
+        }
+
+        .aprender-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .aprender-lista {
+            display: grid;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .aprender-item {
+            padding: 1.5rem;
+            background: #f9f9f7;
+            border-radius: 6px;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .aprender-item h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .aprender-item p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* ===== HISTORIA SECTION ===== */
+        .historia {
+            max-width: 1000px;
+            margin: 60px auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .historia-img {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            height: 400px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            font-weight: 300;
+        }
+
+        .historia-text h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .historia-text p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        /* ===== STATS SECTION ===== */
+        .stats {
+            background: var(--primary-color);
+            color: white;
+            padding: 60px 2rem;
+            margin: 60px 0;
+        }
+
+        .stats-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: clamp(2rem, 6vw, 3.5rem);
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .stat-item p {
+            font-size: 1rem;
+            opacity: 0.95;
+        }
+
+        /* ===== BENEFITS SECTION ===== */
+        .benefits {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 2rem;
+        }
+
+        .benefits h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .benefit-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .benefit-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .benefit-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .benefit-item h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .benefit-item p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* ===== DEPOIMENTOS ===== */
+        .depoimentos {
+            background: #f9f9f7;
+            padding: 60px 2rem;
+            margin: 60px 0;
+        }
+
+        .depoimentos-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .depoimentos h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 3rem;
+            text-align: center;
+        }
+
+        .depoimento-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .depoimento-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .depoimento-autor {
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 0.95rem;
+        }
+
+        /* ===== CTA SECTION ===== */
+        .cta-section {
+            max-width: 1000px;
+            margin: 80px auto 60px;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .cta-info {
+            background: var(--light-color);
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+        }
+
+        .cta-info div {
+            display: inline-block;
+            margin: 0.5rem 1rem;
+            font-weight: 500;
+            color: var(--primary-color);
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--primary-color);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0.5rem 0;
+            opacity: 0.9;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .historia {
+                grid-template-columns: 1fr;
+            }
+
+            .history-img {
+                height: 300px;
+            }
+
+            .stats-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .quebra {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* ===== SCROLL BUTTON ===== */
+        .scroll-btn {
+            display: inline-block;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(10px); }
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <div class="header-content">
+            <a href="#" class="logo">Luciana Coutinho</a>
+            <nav>
+                <a href="#aprender">O que você vai aprender</a>
+                <a href="#historia">About</a>
+                <a href="#beneficios">Benefícios</a>
+            </nav>
+            <button class="cta-btn" onclick="scrollToId('cta')">Me Inscrever</button>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-date">🔴 OPERAÇÃO CASA ORGANIZADA</div>
+            <div class="hero-date">10/03 • 20h • YouTube</div>
+            <h1>Sua casa não precisa de mais esforço.<br>Ela precisa de <strong>direção.</strong></h1>
+            <p class="hero-subtitle">Evento 100% online e gratuito</p>
+            <a href="#cta" class="hero-cta scroll-btn">🔘 QUERO ME INSCREVER AGORA</a>
+        </div>
+    </section>
+
+    <!-- QUEBRA 1: O PROBLEMA -->
+    <section class="quebra">
+        <h2 class="quebra-title">Se você sente que...</h2>
+        <div class="problem-list">
+            <p>Faz muito e nunca termina</p>
+            <p>Vive apagando incêndio dentro de casa</p>
+            <p>Pensa na casa o dia inteiro</p>
+            <p>Improvisa a rotina todos os dias</p>
+        </div>
+        <div class="quebra-content">
+            <p><strong>O problema não é falta de vontade. É falta de MÉTODO.</strong></p>
+            <p>Na Operação Casa Organizada, você vai entender como organizar sua rotina doméstica com clareza, lógica e inteligência mesmo fazendo tudo sozinha ou trabalhando fora.</p>
+        </div>
+        <div class="quebra-cta">
+            <a href="#cta" class="cta-btn">🔘 GARANTIR MINHA VAGA GRATUITA</a>
+        </div>
+    </section>
+
+    <!-- QUEBRA 2: O QUE VAI APRENDER -->
+    <section class="aprender" id="aprender">
+        <div class="aprender-content">
+            <h2 class="quebra-title">O que você vai aprender no evento</h2>
+            <p style="font-size: 1.1rem; margin-bottom: 2rem; color: #666;">
+                <strong>Não é faxina. Não é dica solta. É MÉTODO.</strong>
+            </p>
+            <div class="aprender-lista">
+                <div class="aprender-item">
+                    <h4>Por que sua casa nunca se mantém organizada</h4>
+                    <p>Mesmo quando você se esforça muito</p>
+                </div>
+                <div class="aprender-item">
+                    <h4>O erro invisível que custa tempo, energia e dinheiro</h4>
+                    <p>E como você está gastando recursos sem resultado real</p>
+                </div>
+                <div class="aprender-item">
+                    <h4>Como parar de improvisar a rotina</h4>
+                    <p>E começar a ter previsibilidade no seu dia a dia</p>
+                </div>
+                <div class="aprender-item">
+                    <h4>O que vem antes da limpeza</h4>
+                    <p>Para a casa realmente funcionar por conta própria</p>
+                </div>
+                <div class="aprender-item">
+                    <h4>Como ter uma casa organizada sem culpa</h4>
+                    <p>Sem viver cansada ou cobrada, sem fórmulas irreais</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 3rem;">
+                <a href="#cta" class="cta-btn">🔘 GARANTIR MINHA VAGA GRATUITA</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- HISTÓRIA DA LUCIANE -->
+    <section class="historia" id="historia">
+        <div class="historia-img">
+            <span>📸 Foto da Luciane</span>
+        </div>
+        <div class="historia-text">
+            <h2>A História da Luciane</h2>
+            <p>Por mais de 23 anos, Luciane organizou, administrou e treinou rotinas dentro de casas reais.</p>
+            <p><strong>Casas com funcionária. Casas sem ajuda nenhuma. Casas onde a dona estava exausta, perdida e sobrecarregada.</strong></p>
+            <p>Ao longo desses anos, ela percebeu algo que ninguém falava:</p>
+            <p style="font-size: 1.2rem; color: var(--primary-color);"><strong>O problema das casas não é limpeza. É falta de direção.</strong></p>
+            <p>Foi assim que nasceu um método simples, possível e aplicável à vida real, pensado para mulheres que cuidam da casa, da família e, muitas vezes, de tudo sozinhas.</p>
+            <p><strong>Esse evento é o primeiro passo para você entender esse MÉTODO.</strong></p>
+            <a href="#cta" class="cta-btn">🔘 QUERO APRENDER COM A LUCIANE</a>
+        </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="stats">
+        <div class="stats-content">
+            <div class="stat-item">
+                <h3>500+</h3>
+                <p>Mulheres transformadas</p>
+            </div>
+            <div class="stat-item">
+                <h3>23+</h3>
+                <p>Anos de experiência</p>
+            </div>
+            <div class="stat-item">
+                <h3>1000+</h3>
+                <p>Casas organizadas</p>
+            </div>
+            <div class="stat-item">
+                <h3>98%</h3>
+                <p>Taxa de satisfação</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- BENEFÍCIOS -->
+    <section class="benefits" id="beneficios">
+        <h2>Benefícios da Operação Casa Organizada</h2>
+        <div class="benefits-grid">
+            <div class="benefit-item">
+                <div class="benefit-icon">✨</div>
+                <h3>Casa Organizada</h3>
+                <p>Uma casa que funciona por lógica, não por acaso</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">⚡</div>
+                <h3>Mais Tempo</h3>
+                <p>Recupere horas preciosas na sua semana</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">😌</div>
+                <h3>Menos Estresse</h3>
+                <p>Viva sem culpa e sem pressão constante</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">🎯</div>
+                <h3>Clareza Total</h3>
+                <p>Entenda exatamente como sua casa funciona</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">💪</div>
+                <h3>Autonomia</h3>
+                <p>Sua casa se mantém organizada sozinha</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">🏡</div>
+                <h3>Método Simples</h3>
+                <p>Sem complicação, sem fórmulas irreais</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- DEPOIMENTOS -->
+    <section class="depoimentos">
+        <div class="depoimentos-content">
+            <h2>O que nossas alunas dizem</h2>
+            <div class="depoimento-item">
+                <div class="depoimento-text">
+                    "Depois do método da Luciane, finalmente entendi por que minha casa nunca se mantinha. Agora tenho rotina, previsibilidade e paz mental!"
+                </div>
+                <div class="depoimento-autor">— Mariana S., São Paulo</div>
+            </div>
+            <div class="depoimento-item">
+                <div class="depoimento-text">
+                    "Não é faxina. Não é dica solta. É realmente um método que funciona. Minha vida mudou!"
+                </div>
+                <div class="depoimento-autor">— Paula R., Rio de Janeiro</div>
+            </div>
+            <div class="depoimento-item">
+                <div class="depoimento-text">
+                    "Trabalho fora e cuidava da casa sozinha. Estava exausta. O método da Luciane me ajudou a organizar tudo sem sacrificar meu bem-estar."
+                </div>
+                <div class="depoimento-autor">— Fernanda M., Belo Horizonte</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="cta-section" id="cta">
+        <h2>Se você continuar improvisando...</h2>
+        <p style="margin-bottom: 1rem;">A casa vai continuar ocupando espaço na sua mente mesmo quando você para.</p>
+        <p style="font-size: 1rem; margin-bottom: 2rem;">
+            <strong>A Operação Casa Organizada não é sobre fazer mais. É sobre pensar certo antes de agir.</strong>
+        </p>
+        
+        <div class="cta-info">
+            <div>📅 10/03</div>
+            <div>🕘 20h</div>
+            <div>📱 YouTube</div>
+            <div>💜 Evento 100% Gratuito</div>
+        </div>
+
+        <button class="cta-btn" style="padding: 1.2rem 3rem; font-size: 1.1rem; margin-top: 2rem;">
+            SIM, QUERO PARTICIPAR DA OPERAÇÃO CASA ORGANIZADA
+        </button>
+
+        <p style="margin-top: 2rem; font-size: 0.95rem; color: #999;">
+            Vagas limitadas. Inscreva-se já!
+        </p>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2024 Operação Casa Organizada - Luciana Coutinho</p>
+        <p>Transformando casas através de método, não magia</p>
+    </footer>
+
+    <script>
+        function scrollToId(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Smooth scroll for all anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                const href = this.getAttribute('href');
+                if (href !== '#') {
+                    e.preventDefault();
+                    scrollToId(href.slice(1));
+                }
+            });
+        });
+    </script>
+</body>
+</html>
