@@ -158,7 +158,7 @@ export default function Home() {
                         animate={{ opacity: 1, y: 0 }}
                         className="inline-block py-1.5 px-4 rounded-full bg-teal-50 border border-teal-100/50 text-teal-600 font-bold tracking-widest text-xs uppercase mb-8 shadow-sm"
                     >
-                        Sua Casa Organizada
+                        SUA CASA ORGANIZADA
                     </motion.span>
 
                     <motion.h1
