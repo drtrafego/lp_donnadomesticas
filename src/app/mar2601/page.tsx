@@ -455,7 +455,7 @@ export default function Home() {
                     >
                         <div className="text-center mb-16">
                             <h2 className="text-4xl md:text-6xl font-black mb-6 tracking-tight text-[#2d2d2d]">Pronto para participar?</h2>
-                            <p className="text-xl text-gray-600 font-medium">Inscreva-se agora e garanta seu lugar no evento.</p>
+                            <p className="text-xl text-gray-800 font-bold">Inscreva-se agora e garanta seu lugar no evento.</p>
                         </div>
 
                         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16 text-center">

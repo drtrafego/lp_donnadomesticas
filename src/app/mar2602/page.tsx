@@ -432,7 +432,7 @@ export default function Home() {
                     >
                         <div className="text-center mb-10 md:mb-12">
                             <h2 className="text-3xl md:text-5xl font-bold mb-4 text-white">Pronto para participar?</h2>
-                            <p className="text-xl text-slate-400">Inscreva-se agora e garanta seu lugar no evento.</p>
+                            <p className="text-xl text-teal-50 font-medium">Inscreva-se agora e garanta seu lugar no evento.</p>
                         </div>
 
                         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10 text-center">
