@@ -303,7 +303,7 @@ export default function Home() {
                             <div className="relative rounded-2xl overflow-hidden border-4 border-slate-700 shadow-2xl max-w-md mx-auto">
                                 {/* eslint-disable-next-line @next/next/no-img-element */}
                                 <img
-                                    src="/Luciane.jpeg"
+                                    src="/Luciane.png"
                                     alt="Luciane Coutinho"
                                     className="w-full aspect-square object-cover object-center grayscale hover:grayscale-0 transition-all duration-700"
                                 />

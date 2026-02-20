@@ -326,7 +326,7 @@ export default function Home() {
                                 <div className="relative rounded-[50px] overflow-hidden border-[12px] border-[#fdfdfb] shadow-[0_40px_80px_rgba(0,0,0,0.08)] transform hover:scale-[1.01] transition-transform duration-500 max-w-md mx-auto">
                                     {/* eslint-disable-next-line @next/next/no-img-element */}
                                     <img
-                                        src="/Luciane.jpeg"
+                                        src="/Luciane.png"
                                         alt="Luciane Coutinho"
                                         className="w-full aspect-square object-cover object-center"
                                     />
