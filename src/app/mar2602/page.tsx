@@ -17,7 +17,14 @@ import {
     Clock,
     Home as HomeIcon,
     Book,
-    Smartphone
+    Smartphone,
+    FireExtinguisher,
+    Dices,
+    Coffee,
+    Lightbulb,
+    Key,
+    ListChecks,
+    ClipboardList
 } from 'lucide-react';
 import PhoneInputWithFlag from '@/components/PhoneInputWithFlag';
 
@@ -210,15 +217,15 @@ export default function Home() {
 
                     <div className="grid md:grid-cols-4 gap-6 mb-16">
                         {[
-                            { icon: RefreshCw, title: 'Faz muito', desc: 'e nunca termina' },
-                            { icon: Flame, title: 'Vive apagando', desc: 'incêndio em casa' },
+                            { icon: ClipboardList, title: 'Faz muito', desc: 'e nunca termina' },
+                            { icon: FireExtinguisher, title: 'Vive apagando', desc: 'incêndio em casa' },
                             { icon: Brain, title: 'Pensa na casa', desc: 'o dia inteiro' },
-                            { icon: Zap, title: 'Improvisa a rotina', desc: 'todos os dias' }
+                            { icon: Dices, title: 'Improvisa a rotina', desc: 'todos os dias' }
                         ].map((item, idx) => (
                             <motion.div
                                 key={idx}
                                 {...fadeInUp} transition={{ delay: idx * 0.1 }}
-                                className="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                                className="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center"
                             >
                                 <div className="w-12 h-12 bg-teal-50 text-teal-600 rounded-xl flex items-center justify-center mb-6">
                                     <item.icon className="w-6 h-6" />
@@ -264,16 +271,14 @@ export default function Home() {
                             <motion.div
                                 key={idx}
                                 {...fadeInUp} transition={{ delay: idx * 0.1 }}
-                                className="group p-8 rounded-3xl bg-white border border-slate-100 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+                                className="group p-8 rounded-3xl bg-white border border-slate-100 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center"
                             >
-                                <div className="flex items-start gap-4">
-                                    <div className="w-8 h-8 rounded-full bg-teal-100 text-teal-600 flex items-center justify-center shrink-0 mt-1 font-bold">
-                                        {idx + 1}
-                                    </div>
-                                    <div>
-                                        <h4 className="font-bold text-lg text-slate-900 mb-2">{item.title}</h4>
-                                        <p className="text-slate-500 text-sm leading-relaxed">{item.desc}</p>
-                                    </div>
+                                <div className="w-10 h-10 rounded-full bg-teal-100 text-teal-600 flex items-center justify-center shrink-0 font-bold text-lg">
+                                    {idx + 1}
+                                </div>
+                                <div>
+                                    <h4 className="font-bold text-lg text-slate-900 mb-2">{item.title}</h4>
+                                    <p className="text-slate-500 text-sm leading-relaxed">{item.desc}</p>
                                 </div>
                             </motion.div>
                         ))}
@@ -357,15 +362,15 @@ export default function Home() {
                         {[
                             { title: 'Casa Organizada', desc: 'Uma casa que funciona por lógica, não por acaso', icon: HomeIcon },
                             { title: 'Mais Tempo', desc: 'Recupere horas preciosas na sua semana', icon: Clock },
-                            { title: 'Menos Estresse', desc: 'Viva sem culpa e sem pressão constante.', icon: Sparkles },
-                            { title: 'Clareza Total', desc: 'Entenda exatamente como sua casa funciona', icon: Brain },
-                            { title: 'Autonomia', desc: 'Sua casa se mantém organizada sozinha', icon: Smartphone },
-                            { title: 'Método Simples', desc: 'Sem complicação, sem fórmulas irreais', icon: Book }
+                            { title: 'Menos Estresse', desc: 'Viva sem culpa e sem pressão constante.', icon: Coffee },
+                            { title: 'Clareza Total', desc: 'Entenda exatamente como sua casa funciona', icon: Lightbulb },
+                            { title: 'Autonomia', desc: 'Sua casa se mantém organizada sozinha', icon: Key },
+                            { title: 'Método Simples', desc: 'Sem complicação, sem fórmulas irreais', icon: ListChecks }
                         ].map((item, idx) => (
                             <motion.div
                                 key={idx}
                                 {...fadeInUp} transition={{ delay: idx * 0.1 }}
-                                className="bg-white p-8 rounded-2xl border border-slate-100 shadow-md hover:shadow-lg hover:border-teal-100 hover:-translate-y-1 transition-all duration-300"
+                                className="bg-white p-8 rounded-2xl border border-slate-100 shadow-md hover:shadow-lg hover:border-teal-100 hover:-translate-y-1 transition-all duration-300 flex flex-col items-center text-center"
                             >
                                 <div className="w-10 h-10 bg-slate-100 rounded-lg flex items-center justify-center mb-4 text-slate-900">
                                     <item.icon className="w-5 h-5" />
@@ -430,39 +435,39 @@ export default function Home() {
                             <p className="text-xl text-slate-400">Inscreva-se agora e garanta seu lugar no evento.</p>
                         </div>
 
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10 text-center">
                             {[
                                 { label: 'Data', val: '10 de Março' },
                                 { label: 'Horário', val: '20h00' },
                                 { label: 'Plataforma', val: 'YouTube' },
                                 { label: 'Custo', val: '100% Grátis' }
                             ].map((info, idx) => (
-                                <div key={idx} className="bg-slate-900/50 p-4 rounded-2xl border border-slate-700 text-center">
-                                    <div className="text-[10px] text-slate-500 uppercase font-bold tracking-widest mb-1">{info.label}</div>
-                                    <div className="text-sm font-bold text-teal-400">{info.val}</div>
+                                <div key={idx} className="bg-slate-900/60 p-4 rounded-2xl border border-slate-600/50 shadow-inner">
+                                    <div className="text-[10px] text-teal-200/80 uppercase font-black tracking-widest mb-1">{info.label}</div>
+                                    <div className="text-sm font-bold text-white">{info.val}</div>
                                 </div>
                             ))}
                         </div>
 
-                        <form onSubmit={handleSubmit} className="space-y-6">
+                        <form onSubmit={handleSubmit} className="space-y-6 text-left">
                             <div className="grid md:grid-cols-2 gap-6">
                                 <div className="space-y-2">
-                                    <label className="text-xs font-bold text-slate-400 ml-1 uppercase tracking-widest">Nome Completo</label>
+                                    <label className="text-xs font-bold text-teal-100 uppercase tracking-widest ml-1">Nome Completo</label>
                                     <input
                                         type="text"
-                                        className="w-full h-14 bg-slate-900/50 border border-slate-700 rounded-xl px-6 focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition-all text-white placeholder:text-slate-600"
                                         placeholder="Digite seu nome"
+                                        className="w-full h-14 bg-white border border-transparent rounded-xl px-6 focus:ring-4 focus:ring-teal-500/30 focus:border-teal-500 outline-none transition-all text-slate-900 placeholder:text-slate-400 shadow-sm"
                                         value={formData.name}
                                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                                         required
                                     />
                                 </div>
                                 <div className="space-y-2">
-                                    <label className="text-xs font-bold text-slate-400 ml-1 uppercase tracking-widest">Email Principal</label>
+                                    <label className="text-xs font-bold text-teal-100 uppercase tracking-widest ml-1">Email Principal</label>
                                     <input
                                         type="email"
-                                        className="w-full h-14 bg-slate-900/50 border border-slate-700 rounded-xl px-6 focus:ring-2 focus:ring-teal-500 focus:border-transparent outline-none transition-all text-white placeholder:text-slate-600"
                                         placeholder="seu@email.com"
+                                        className="w-full h-14 bg-white border border-transparent rounded-xl px-6 focus:ring-4 focus:ring-teal-500/30 focus:border-teal-500 outline-none transition-all text-slate-900 placeholder:text-slate-400 shadow-sm"
                                         value={formData.email}
                                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                                         required
@@ -471,11 +476,11 @@ export default function Home() {
                             </div>
 
                             <div className="space-y-2">
-                                <label className="text-xs font-bold text-slate-400 ml-1 uppercase tracking-widest">WhatsApp</label>
+                                <label className="text-xs font-bold text-teal-100 uppercase tracking-widest ml-1">WhatsApp</label>
                                 <PhoneInputWithFlag
                                     value={formData.phone}
                                     onChange={(val, isValid) => setFormData({ ...formData, phone: val, phoneValid: isValid })}
-                                    className="!bg-slate-900/50 !border-slate-700 !text-white"
+                                    className="!border-transparent focus-within:!ring-4 focus-within:!ring-teal-500/30 w-full bg-white shadow-sm"
                                 />
                             </div>
 
