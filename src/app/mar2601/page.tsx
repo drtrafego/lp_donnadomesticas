@@ -313,12 +313,12 @@ export default function Home() {
                         >
                             <div className="relative group">
                                 <div className="absolute -inset-6 bg-[#556B2F]/10 rounded-[60px] blur-3xl opacity-100"></div>
-                                <div className="relative rounded-[50px] overflow-hidden border-[12px] border-[#fdfdfb] shadow-[0_40px_80px_rgba(0,0,0,0.08)] transform hover:scale-[1.01] transition-transform duration-500">
+                                <div className="relative rounded-[50px] overflow-hidden border-[12px] border-[#fdfdfb] shadow-[0_40px_80px_rgba(0,0,0,0.08)] transform hover:scale-[1.01] transition-transform duration-500 max-w-md mx-auto">
                                     {/* eslint-disable-next-line @next/next/no-img-element */}
                                     <img
                                         src="/Luciane.jpeg"
                                         alt="Luciane Coutinho"
-                                        className="w-full h-auto"
+                                        className="w-full aspect-square object-cover object-center"
                                     />
                                 </div>
                             </div>

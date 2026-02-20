@@ -295,12 +295,12 @@ export default function Home() {
                             viewport={{ once: true }}
                             className="flex-1"
                         >
-                            <div className="relative rounded-2xl overflow-hidden border-4 border-slate-700 shadow-2xl">
+                            <div className="relative rounded-2xl overflow-hidden border-4 border-slate-700 shadow-2xl max-w-md mx-auto">
                                 {/* eslint-disable-next-line @next/next/no-img-element */}
                                 <img
                                     src="/Luciane.jpeg"
                                     alt="Luciane Coutinho"
-                                    className="w-full h-auto grayscale hover:grayscale-0 transition-all duration-700"
+                                    className="w-full aspect-square object-cover object-center grayscale hover:grayscale-0 transition-all duration-700"
                                 />
                             </div>
                         </motion.div>
