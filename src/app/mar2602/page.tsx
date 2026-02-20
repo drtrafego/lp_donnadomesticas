@@ -144,7 +144,7 @@ export default function Home() {
             </header>
 
             {/* HERO SECTION */}
-            <section id="home" className="py-24 text-center">
+            <section id="home" className="py-12 md:py-20 text-center">
                 <div className="container mx-auto px-6">
                     <motion.span
                         initial={{ opacity: 0, y: 10 }}
@@ -177,7 +177,7 @@ export default function Home() {
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.5 }}
-                        className="flex flex-wrap justify-center gap-6 md:gap-12 mb-12 text-slate-400 font-bold tracking-widest text-sm uppercase"
+                        className="flex flex-wrap justify-center gap-4 md:gap-8 mb-10 text-slate-400 font-bold tracking-widest text-sm uppercase"
                     >
                         <div className="flex items-center gap-2"><Calendar className="w-5 h-5 text-teal-500" /> 10/03/2026</div>
                         <div className="flex items-center gap-2"><Clock className="w-5 h-5 text-teal-500" /> 20h00</div>
@@ -201,9 +201,9 @@ export default function Home() {
             </section>
 
             {/* PROBLEMA SECTION - BENTO GRID STYLE */}
-            <section className="py-20 bg-slate-50/50 border-y border-slate-100" id="problema">
+            <section className="py-16 md:py-20 bg-slate-50/50 border-y border-slate-100" id="problema">
                 <div className="container mx-auto px-6">
-                    <motion.div {...fadeInUp} className="text-center mb-16">
+                    <motion.div {...fadeInUp} className="text-center mb-10 md:mb-14">
                         <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-4">Se você sente que...</h2>
                         <div className="w-20 h-1.5 bg-teal-500 mx-auto rounded-full opacity-30"></div>
                     </motion.div>
@@ -218,7 +218,7 @@ export default function Home() {
                             <motion.div
                                 key={idx}
                                 {...fadeInUp} transition={{ delay: idx * 0.1 }}
-                                className="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
+                                className="bg-white p-8 rounded-[2rem] border border-slate-100 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
                             >
                                 <div className="w-12 h-12 bg-teal-50 text-teal-600 rounded-xl flex items-center justify-center mb-6">
                                     <item.icon className="w-6 h-6" />
@@ -245,14 +245,14 @@ export default function Home() {
             </section>
 
             {/* APRENDER SECTION */}
-            <section className="py-24" id="aprender">
+            <section className="py-16 md:py-20" id="aprender">
                 <div className="container mx-auto px-6">
-                    <motion.div {...fadeInUp} className="text-center mb-16">
+                    <motion.div {...fadeInUp} className="text-center mb-10 md:mb-14">
                         <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-4">O que você vai aprender</h2>
                         <p className="text-slate-500 font-medium">Não é faxina. Não é dica solta. É método.</p>
                     </motion.div>
 
-                    <div className="grid md:grid-cols-3 gap-8">
+                    <div className="grid md:grid-cols-3 gap-6 md:gap-8">
                         {[
                             { title: 'Por que sua casa nunca se mantém organizada', desc: 'Mesmo quando você se esforça muito' },
                             { title: 'O erro invisível que custa tempo e energia', desc: 'E como você está gastando recursos sem resultado real' },
@@ -264,7 +264,7 @@ export default function Home() {
                             <motion.div
                                 key={idx}
                                 {...fadeInUp} transition={{ delay: idx * 0.1 }}
-                                className="group p-8 rounded-3xl hover:bg-slate-50 transition-colors border border-transparent hover:border-slate-100"
+                                className="group p-8 rounded-3xl bg-white border border-slate-100 shadow-md hover:shadow-lg hover:-translate-y-1 transition-all duration-300"
                             >
                                 <div className="flex items-start gap-4">
                                     <div className="w-8 h-8 rounded-full bg-teal-100 text-teal-600 flex items-center justify-center shrink-0 mt-1 font-bold">
@@ -282,13 +282,13 @@ export default function Home() {
             </section>
 
             {/* HISTÓRIA SECTION */}
-            <section className="py-24 bg-slate-900 text-white relative overflow-hidden" id="historia">
+            <section className="py-16 md:py-24 bg-slate-900 text-white relative overflow-hidden" id="historia">
                 {/* Decorative background elements */}
                 <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-teal-900/20 to-transparent"></div>
                 <div className="absolute bottom-0 left-0 w-64 h-64 bg-teal-500/10 rounded-full blur-3xl"></div>
 
                 <div className="container mx-auto px-6 relative z-10">
-                    <div className="flex flex-col-reverse lg:flex-row gap-16 items-center">
+                    <div className="flex flex-col-reverse lg:flex-row gap-10 md:gap-16 items-center">
                         <motion.div
                             initial={{ opacity: 0, x: -20 }}
                             whileInView={{ opacity: 1, x: 0 }}
@@ -328,9 +328,9 @@ export default function Home() {
             </section>
 
             {/* STATS SECTION */}
-            <section className="py-16 border-b border-slate-100">
+            <section className="py-12 md:py-16 border-b border-slate-100">
                 <div className="container mx-auto px-6">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 divide-y md:divide-y-0 md:divide-x divide-slate-100">
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-8 divide-y sm:divide-y-0 sm:divide-x divide-slate-100">
                         {[
                             { val: '20+', label: 'Anos de Experiência' },
                             { val: '2 MIL', label: 'Residências Transformadas' },
@@ -346,9 +346,9 @@ export default function Home() {
             </section>
 
             {/* BENEFÍCIOS SECTION */}
-            <section className="py-24 bg-slate-50/50" id="beneficios">
+            <section className="py-16 md:py-20 bg-slate-50/50" id="beneficios">
                 <div className="container mx-auto px-6">
-                    <motion.div {...fadeInUp} className="text-center mb-16">
+                    <motion.div {...fadeInUp} className="text-center mb-10 md:mb-14">
                         <h2 className="text-3xl md:text-5xl font-bold text-slate-900 mb-4">Benefícios Reais</h2>
                         <p className="text-slate-500">O que você ganha ao aplicar o método</p>
                     </motion.div>
@@ -365,7 +365,7 @@ export default function Home() {
                             <motion.div
                                 key={idx}
                                 {...fadeInUp} transition={{ delay: idx * 0.1 }}
-                                className="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover:border-teal-100 transition-all"
+                                className="bg-white p-8 rounded-2xl border border-slate-100 shadow-md hover:shadow-lg hover:border-teal-100 hover:-translate-y-1 transition-all duration-300"
                             >
                                 <div className="w-10 h-10 bg-slate-100 rounded-lg flex items-center justify-center mb-4 text-slate-900">
                                     <item.icon className="w-5 h-5" />
@@ -379,13 +379,13 @@ export default function Home() {
             </section>
 
             {/* TESTIMONIALS */}
-            <section className="py-24 bg-white">
+            <section className="py-16 md:py-20 bg-white">
                 <div className="container mx-auto px-6">
-                    <motion.h2 {...fadeInUp} className="text-3xl md:text-5xl font-bold text-center text-slate-900 mb-16">
+                    <motion.h2 {...fadeInUp} className="text-3xl md:text-5xl font-bold text-center text-slate-900 mb-10 md:mb-14">
                         O que nossas alunas dizem
                     </motion.h2>
 
-                    <div className="grid md:grid-cols-3 gap-8">
+                    <div className="grid md:grid-cols-3 gap-6 md:gap-8">
                         {[
                             { name: 'Mariana S.', location: 'São Paulo, SP', avatar: 'M', text: 'Depois do método da Luciane, finalmente entendi por que minha casa nunca se mantinha. Agora tenho rotina, previsibilidade e paz mental!' },
                             { name: 'Paula R.', location: 'Rio de Janeiro, RJ', avatar: 'P', text: 'Não é faxina. Não é dica solta. É realmente um método que funciona. Minha vida mudou completamente!' },
@@ -394,7 +394,7 @@ export default function Home() {
                             <motion.div
                                 key={idx}
                                 {...fadeInUp} transition={{ delay: idx * 0.15 }}
-                                className="bg-slate-50 p-8 rounded-3xl relative"
+                                className="bg-white p-8 rounded-3xl relative border border-slate-100 shadow-md hover:shadow-lg transition-all duration-300"
                             >
                                 <div className="absolute top-8 right-8 text-teal-200">
                                     <Star className="w-8 h-8 fill-current opacity-20" />
@@ -414,7 +414,7 @@ export default function Home() {
             </section>
 
             {/* CTA FORM SECTION */}
-            <section className="py-24 relative overflow-hidden" id="cta">
+            <section className="py-16 md:py-24 relative overflow-hidden" id="cta">
                 <div className="absolute inset-0 bg-slate-900 -z-20"></div>
                 <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-teal-900/40 via-slate-900 to-slate-900 -z-10"></div>
 
@@ -423,9 +423,9 @@ export default function Home() {
                         initial={{ opacity: 0, y: 40 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="max-w-4xl mx-auto bg-slate-800/50 backdrop-blur-xl border border-slate-700/50 p-8 md:p-16 rounded-[3rem] shadow-2xl"
+                        className="max-w-4xl mx-auto bg-slate-800/50 backdrop-blur-xl border border-slate-700/50 p-6 md:p-12 rounded-[2rem] md:rounded-[3rem] shadow-2xl"
                     >
-                        <div className="text-center mb-12">
+                        <div className="text-center mb-10 md:mb-12">
                             <h2 className="text-3xl md:text-5xl font-bold mb-4 text-white">Pronto para participar?</h2>
                             <p className="text-xl text-slate-400">Inscreva-se agora e garanta seu lugar no evento.</p>
                         </div>
