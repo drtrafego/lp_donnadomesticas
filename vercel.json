@@ -1,0 +1,13 @@
+{
+    "framework": "nextjs",
+    "rewrites": [
+        {
+            "source": "/",
+            "destination": "/mar2601"
+        },
+        {
+            "source": "/health",
+            "destination": "/static/health.html"
+        }
+    ]
+}
