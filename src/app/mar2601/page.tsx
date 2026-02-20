@@ -17,7 +17,14 @@ import {
     Clock,
     Home as HomeIcon,
     Book,
-    Smartphone
+    Smartphone,
+    FireExtinguisher,
+    Dices,
+    Coffee,
+    Lightbulb,
+    Key,
+    ListChecks,
+    ClipboardList
 } from 'lucide-react';
 import PhoneInputWithFlag from '@/components/PhoneInputWithFlag';
 
@@ -154,7 +161,7 @@ export default function Home() {
                         className="inline-flex items-center gap-2 px-5 py-2 rounded-full glass text-xs font-black tracking-widest text-[#556B2F] mb-10 border-[#556B2F]/10"
                     >
                         <HomeIcon className="w-4 h-4" />
-                        OPERAÇÃO CASA ORGANIZADA
+                        SUA CASA ORGANIZADA
                     </motion.div>
 
                     <motion.h1
@@ -215,42 +222,42 @@ export default function Home() {
                     <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-20">
                         <motion.div
                             {...fadeInUp} transition={{ delay: 0.1 }}
-                            className="p-10 bg-[#fdfdfb] border border-gray-100 rounded-[40px] premium-shadow flex flex-col gap-6 hover:border-[#556B2F]/30 transition-all group"
+                            className="p-10 bg-[#fdfdfb] border border-gray-100 rounded-[40px] premium-shadow flex flex-col items-center text-center gap-6 hover:border-[#556B2F]/30 transition-all group"
                         >
                             <div className="w-16 h-16 bg-gray-50 rounded-2xl flex items-center justify-center group-hover:bg-[#f0f2ed] transition-colors">
-                                <RefreshCw className="w-8 h-8 text-[#556B2F]" />
+                                <ClipboardList className="w-8 h-8 text-[#556B2F]" />
                             </div>
-                            <h3 className="text-xl font-bold leading-tight"><strong>Faz muito</strong> e nunca termina</h3>
+                            <h3 className="text-xl font-bold leading-tight"><strong>Faz muito</strong><br /> e nunca termina</h3>
                         </motion.div>
 
                         <motion.div
                             {...fadeInUp} transition={{ delay: 0.2 }}
-                            className="p-10 bg-[#fdfdfb] border border-gray-100 rounded-[40px] premium-shadow flex flex-col gap-6 hover:border-[#556B2F]/30 transition-all group"
+                            className="p-10 bg-[#fdfdfb] border border-gray-100 rounded-[40px] premium-shadow flex flex-col items-center text-center gap-6 hover:border-[#556B2F]/30 transition-all group"
                         >
                             <div className="w-16 h-16 bg-gray-50 rounded-2xl flex items-center justify-center group-hover:bg-[#f0f2ed] transition-colors">
-                                <Flame className="w-8 h-8 text-[#556B2F]" />
+                                <FireExtinguisher className="w-8 h-8 text-[#556B2F]" />
                             </div>
-                            <h3 className="text-xl font-bold leading-tight"><strong>Vive apagando incêndio</strong> dentro de casa</h3>
+                            <h3 className="text-xl font-bold leading-tight"><strong>Vive apagando incêndio</strong><br /> dentro de casa</h3>
                         </motion.div>
 
                         <motion.div
                             {...fadeInUp} transition={{ delay: 0.3 }}
-                            className="p-10 bg-[#fdfdfb] border border-gray-100 rounded-[40px] premium-shadow flex flex-col gap-6 hover:border-[#556B2F]/30 transition-all group"
+                            className="p-10 bg-[#fdfdfb] border border-gray-100 rounded-[40px] premium-shadow flex flex-col items-center text-center gap-6 hover:border-[#556B2F]/30 transition-all group"
                         >
                             <div className="w-16 h-16 bg-gray-50 rounded-2xl flex items-center justify-center group-hover:bg-[#f0f2ed] transition-colors">
                                 <Brain className="w-8 h-8 text-[#556B2F]" />
                             </div>
-                            <h3 className="text-xl font-bold leading-tight"><strong>Pensa na casa</strong> o dia inteiro</h3>
+                            <h3 className="text-xl font-bold leading-tight"><strong>Pensa na casa</strong><br /> o dia inteiro</h3>
                         </motion.div>
 
                         <motion.div
                             {...fadeInUp} transition={{ delay: 0.4 }}
-                            className="p-10 bg-[#fdfdfb] border border-gray-100 rounded-[40px] premium-shadow flex flex-col gap-6 hover:border-[#556B2F]/30 transition-all group"
+                            className="p-10 bg-[#fdfdfb] border border-gray-100 rounded-[40px] premium-shadow flex flex-col items-center text-center gap-6 hover:border-[#556B2F]/30 transition-all group"
                         >
                             <div className="w-16 h-16 bg-gray-50 rounded-2xl flex items-center justify-center group-hover:bg-[#f0f2ed] transition-colors">
-                                <Zap className="w-8 h-8 text-[#556B2F]" />
+                                <Dices className="w-8 h-8 text-[#556B2F]" />
                             </div>
-                            <h3 className="text-xl font-bold leading-tight"><strong>Improvisa a rotina</strong> todos os dias</h3>
+                            <h3 className="text-xl font-bold leading-tight"><strong>Improvisa a rotina</strong><br /> todos os dias</h3>
                         </motion.div>
                     </div>
 
@@ -290,9 +297,12 @@ export default function Home() {
                             <motion.div
                                 key={idx}
                                 {...fadeInUp} transition={{ delay: idx * 0.1 }}
-                                className="bg-white p-10 rounded-[40px] border border-gray-100 premium-shadow group hover:border-[#556B2F]/30 transition-all"
+                                className="bg-white p-10 rounded-[40px] border border-gray-100 premium-shadow group hover:border-[#556B2F]/30 transition-all flex flex-col items-center text-center"
                             >
-                                <h4 className="font-black text-lg text-[#556B2F] mb-4">✓ {item.title}</h4>
+                                <div className="w-12 h-12 bg-[#f0f2ed] text-[#556B2F] rounded-full flex items-center justify-center font-black text-xl mb-6">
+                                    {idx + 1}
+                                </div>
+                                <h4 className="font-black text-lg text-[#556B2F] mb-4">{item.title}</h4>
                                 <p className="text-gray-500 leading-relaxed">{item.desc}</p>
                             </motion.div>
                         ))}
@@ -379,15 +389,15 @@ export default function Home() {
                         {[
                             { title: 'Casa Organizada', desc: 'Uma casa que funciona por lógica, não por acaso', icon: HomeIcon },
                             { title: 'Mais Tempo', desc: 'Recupere horas preciosas na sua semana', icon: Clock },
-                            { title: 'Menos Estresse', desc: 'Viva sem culpa e sem pressão constante.', icon: Sparkles },
-                            { title: 'Clareza Total', desc: 'Entenda exatamente como sua casa funciona', icon: Brain },
-                            { title: 'Autonomia', desc: 'Sua casa se mantém organizada sozinha', icon: Smartphone },
-                            { title: 'Método Simples', desc: 'Sem complicação, sem fórmulas irreais', icon: Book }
+                            { title: 'Menos Estresse', desc: 'Viva sem culpa e sem pressão constante.', icon: Coffee },
+                            { title: 'Clareza Total', desc: 'Entenda exatamente como sua casa funciona', icon: Lightbulb },
+                            { title: 'Autonomia', desc: 'Sua casa se mantém organizada sozinha', icon: Key },
+                            { title: 'Método Simples', desc: 'Sem complicação, sem fórmulas irreais', icon: ListChecks }
                         ].map((item, idx) => (
                             <motion.div
                                 key={idx}
                                 {...fadeInUp} transition={{ delay: idx * 0.1 }}
-                                className="p-10 bg-[#fdfdfb] border border-gray-100 rounded-[40px] premium-shadow hover:border-[#556B2F]/30 transition-all group"
+                                className="p-10 bg-[#fdfdfb] border border-gray-100 rounded-[40px] premium-shadow hover:border-[#556B2F]/30 transition-all group flex flex-col items-center text-center"
                             >
                                 <div className="w-14 h-14 bg-gray-50 rounded-2xl flex items-center justify-center group-hover:bg-[#f0f2ed] transition-colors mb-6">
                                     <item.icon className="w-8 h-8 text-[#556B2F]" />
@@ -450,10 +460,10 @@ export default function Home() {
 
                         <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16 text-center">
                             {[
-                                { label: '📅 Data', val: '10 de Março' },
-                                { label: '🕘 Horário', val: '20h00' },
-                                { label: '📱 Plataforma', val: 'YouTube' },
-                                { label: '💰 Investimento', val: '100% Grátis' }
+                                { label: 'Data', val: '10 de Março' },
+                                { label: 'Horário', val: '20h00' },
+                                { label: 'Plataforma', val: 'YouTube' },
+                                { label: 'Investimento', val: '100% Grátis' }
                             ].map((info, idx) => (
                                 <div key={idx} className="bg-white/60 p-4 rounded-2xl border border-white/50">
                                     <div className="text-[10px] text-gray-400 uppercase font-black tracking-widest mb-1">{info.label}</div>
@@ -511,7 +521,7 @@ export default function Home() {
                                     </>
                                 ) : (
                                     <>
-                                        <span>🔘 SIM, QUERO PARTICIPAR!</span>
+                                        <span>SIM, QUERO PARTICIPAR!</span>
                                         <ArrowRight className="w-7 h-7 group-hover:translate-x-2 transition-transform" />
                                     </>
                                 )}
