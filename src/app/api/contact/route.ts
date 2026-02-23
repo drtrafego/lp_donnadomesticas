@@ -346,6 +346,8 @@ export async function POST(request: NextRequest) {
             // Preparar dados para Tracking Server-Side
             const userAgent = request.headers.get('user-agent') || '';
             const ip = request.headers.get('x-forwarded-for')?.split(',')[0] || request.headers.get('x-real-ip') || '';
+            const fbc = request.cookies.get('_fbc')?.value;
+            const fbp = request.cookies.get('_fbp')?.value;
 
             // Hashing sensitive data for Meta
             const hashedEmail = await hashData(email);
@@ -359,7 +361,7 @@ export async function POST(request: NextRequest) {
             const trackingPromises = [
                 // Meta CAPI
                 sendMetaCAPI('Lead',
-                    { em: hashedEmail, ph: hashedPhone, fn: hashedFirstName, ip, ua: userAgent },
+                    { em: hashedEmail, ph: hashedPhone, fn: hashedFirstName, ip, ua: userAgent, fbc, fbp },
                     { content_name: 'Inscrição Casa Organizada', value: 0, currency: 'BRL' },
                     eventId
                 ),

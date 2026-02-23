@@ -135,38 +135,6 @@ export default function Home() {
             {/* BACKGROUND GRID (O SEGREDO DO DESIGN) */}
             <div className="fixed inset-0 -z-10 h-full w-full bg-white [background:radial-gradient(125%_125%_at_50%_10%,#fff_40%,#63e_100%)] opacity-20"></div>
 
-            {/* HEADER */}
-            <header className={`sticky top-0 z-50 w-full border-b transition-all duration-300 ${isScrolled ? 'bg-white/80 backdrop-blur-md border-slate-200' : 'bg-transparent border-transparent'}`}>
-                <div className="container mx-auto flex h-16 items-center justify-between px-6">
-                    <motion.div
-                        initial={{ opacity: 0, x: -20 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        className="flex items-center gap-2 font-bold text-xl text-slate-900 cursor-pointer"
-                        onClick={() => scrollToId('home')}
-                    >
-                        <div className="w-8 h-8 bg-teal-500 rounded-lg flex items-center justify-center">
-                            <Sparkles className="text-white w-5 h-5" />
-                        </div>
-                        Casa Organizada
-                    </motion.div>
-
-                    <nav className="hidden md:flex gap-8 text-sm font-medium text-slate-600">
-                        <button onClick={() => scrollToId('problema')} className="hover:text-teal-600 transition-colors">Problemas</button>
-                        <button onClick={() => scrollToId('aprender')} className="hover:text-teal-600 transition-colors">O que aprender</button>
-                        <button onClick={() => scrollToId('historia')} className="hover:text-teal-600 transition-colors">Sobre Nós</button>
-                    </nav>
-
-                    <motion.button
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        onClick={() => scrollToId('cta')}
-                        className="bg-slate-900 text-white px-5 py-2 rounded-full font-semibold hover:bg-slate-800 transition shadow-lg shadow-slate-900/20"
-                    >
-                        Inscrição Gratuita
-                    </motion.button>
-                </div>
-            </header>
-
             {/* HERO SECTION */}
             <section id="home" className="py-12 md:py-20 text-center">
                 <div className="container mx-auto px-6">

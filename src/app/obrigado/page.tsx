@@ -7,8 +7,8 @@ import { motion } from 'framer-motion';
 import { CheckCircle2, MessageCircle, ArrowRight, Loader2 } from 'lucide-react';
 import * as tracking from '@/lib/tracking';
 
-// Link de exemplo - o usuário poderá trocar depois
-const WHATSAPP_COMMUNITY_LINK = 'https://chat.whatsapp.com/Exemplo';
+// Link da Comunidade WhatsApp
+const WHATSAPP_COMMUNITY_LINK = 'https://chat.whatsapp.com/FGrLBee4mej0mrfZfa8CSM';
 
 function ThankYouContent() {
     const searchParams = useSearchParams();

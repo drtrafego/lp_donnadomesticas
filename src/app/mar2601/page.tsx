@@ -131,38 +131,6 @@ export default function Home() {
 
     return (
         <main className="min-h-screen selection:bg-[#556B2F] selection:text-white">
-            {/* HEADER */}
-            <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled ? 'glass py-3' : 'bg-transparent py-6'}`}>
-                <nav className="max-w-7xl mx-auto px-6 flex justify-between items-center">
-                    <motion.div
-                        initial={false}
-                        animate={{ opacity: 1, x: 0 }}
-                        className="flex items-center gap-2"
-                        onClick={() => scrollToId('home')}
-                        style={{ cursor: 'pointer' }}
-                    >
-                        <Sparkles className="w-6 h-6 text-[#556B2F]" />
-                        <span className="text-xl font-bold tracking-tight text-[#2d2d2d]">Casa Organizada</span>
-                    </motion.div>
-
-                    <ul className="hidden md:flex gap-10 items-center text-sm font-semibold text-gray-700">
-                        <li><button onClick={() => scrollToId('problema')} className="hover:text-[#556B2F] transition-colors relative group">Problemas <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#556B2F] transition-all group-hover:w-full"></span></button></li>
-                        <li><button onClick={() => scrollToId('aprender')} className="hover:text-[#556B2F] transition-colors relative group">O que aprender <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#556B2F] transition-all group-hover:w-full"></span></button></li>
-                        <li><button onClick={() => scrollToId('historia')} className="hover:text-[#556B2F] transition-colors relative group">Sobre Nós <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#556B2F] transition-all group-hover:w-full"></span></button></li>
-                        <li>
-                            <motion.button
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                                onClick={() => scrollToId('cta')}
-                                className="bg-[#556B2F] text-white px-6 py-2.5 rounded-full hover:bg-[#6B8E23] transition-all shadow-lg shadow-green-900/10 active:scale-95"
-                            >
-                                Inscrição Gratuita
-                            </motion.button>
-                        </li>
-                    </ul>
-                </nav>
-            </header>
-
             {/* HERO SECTION */}
             <section id="home" className="relative pt-32 pb-20 md:pt-52 md:pb-32 mesh-gradient overflow-hidden">
                 <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full opacity-30 pointer-events-none">
@@ -226,10 +194,10 @@ export default function Home() {
                         </button>
                     </motion.div>
                 </div>
-            </section>
+            </section >
 
             {/* PROBLEMA SECTION */}
-            <section className="py-32 bg-white" id="problema">
+            < section className="py-32 bg-white" id="problema" >
                 <div className="max-w-7xl mx-auto px-6">
                     <motion.div {...fadeInUp} className="text-center mb-20">
                         <h2 className="text-4xl md:text-6xl font-black mb-6 tracking-tight">Se você sente que...</h2>
@@ -291,10 +259,10 @@ export default function Home() {
                         </button>
                     </motion.div>
                 </div>
-            </section>
+            </section >
 
             {/* APRENDER SECTION */}
-            <section className="py-32 bg-[#fdfdfb]" id="aprender">
+            < section className="py-32 bg-[#fdfdfb]" id="aprender" >
                 <div className="max-w-7xl mx-auto px-6">
                     <motion.div {...fadeInUp} className="text-center mb-20 text-[#2d2d2d]">
                         <h2 className="text-4xl md:text-6xl font-black mb-4">O que você vai aprender</h2>
@@ -325,10 +293,10 @@ export default function Home() {
                         ))}
                     </div>
                 </div>
-            </section>
+            </section >
 
             {/* HISTÓRIA SECTION */}
-            <section className="py-32 bg-white" id="historia">
+            < section className="py-32 bg-white" id="historia" >
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="flex flex-col-reverse lg:flex-row gap-20 items-center">
                         <motion.div
@@ -370,10 +338,10 @@ export default function Home() {
                         </motion.div>
                     </div>
                 </div>
-            </section>
+            </section >
 
             {/* STATS SECTION */}
-            <section className="py-24 bg-[#556B2F] text-white">
+            < section className="py-24 bg-[#556B2F] text-white" >
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
                         {[
@@ -392,10 +360,10 @@ export default function Home() {
                         ))}
                     </div>
                 </div>
-            </section>
+            </section >
 
             {/* BENEFÍCIOS SECTION */}
-            <section className="py-32 bg-white" id="beneficios">
+            < section className="py-32 bg-white" id="beneficios" >
                 <div className="max-w-7xl mx-auto px-6">
                     <motion.div {...fadeInUp} className="text-center mb-20 text-[#2d2d2d]">
                         <h2 className="text-4xl md:text-6xl font-black mb-6">Benefícios da Operação Casa Organizada</h2>
@@ -425,10 +393,10 @@ export default function Home() {
                         ))}
                     </div>
                 </div>
-            </section>
+            </section >
 
             {/* TESTIMONIALS */}
-            <section className="py-32 bg-[#f8f9f5]">
+            < section className="py-32 bg-[#f8f9f5]" >
                 <div className="max-w-7xl mx-auto px-6 text-center mb-20">
                     <motion.h2 {...fadeInUp} className="text-4xl md:text-6xl font-black mb-4 text-[#2d2d2d]">O que nossas alunas dizem</motion.h2>
                     <div className="w-20 h-2 bg-[#556B2F] mx-auto rounded-full"></div>
@@ -457,10 +425,10 @@ export default function Home() {
                         ))}
                     </div>
                 </div>
-            </section>
+            </section >
 
             {/* CTA FORM SECTION */}
-            <section className="py-32 relative" id="cta">
+            < section className="py-32 relative" id="cta" >
                 <div className="absolute inset-0 mesh-gradient opacity-60"></div>
                 <div className="max-w-4xl mx-auto px-6 relative z-10">
                     <motion.div
@@ -547,10 +515,10 @@ export default function Home() {
                         <p className="text-center mt-8 text-gray-400 text-sm font-medium">Vagas limitadas. Inscrição garantida até 10/03</p>
                     </motion.div>
                 </div>
-            </section>
+            </section >
 
             {/* FOOTER */}
-            <footer className="py-20 bg-white">
+            < footer className="py-20 bg-white" >
                 <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-12">
                     <div className="text-center md:text-left">
                         <div className="flex items-center gap-2 justify-center md:justify-start mb-6">
@@ -570,7 +538,7 @@ export default function Home() {
                         <p className="text-gray-350 text-xs font-bold tracking-widest uppercase">© 2024 Luciane Coutinho. Todos os direitos reservados.</p>
                     </div>
                 </div>
-            </footer>
-        </main>
+            </footer >
+        </main >
     );
 }

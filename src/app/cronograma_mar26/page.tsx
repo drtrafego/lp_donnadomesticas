@@ -58,8 +58,8 @@ export default function CronogramaPage() {
                 </svg>
             </div>
 
-            {/* Header */}
-            <header className="relative z-10 pt-16 pb-12 px-6 text-center border-b border-[#E8E0D5]">
+            {/* HERO / HEADER SECTION */}
+            <section className="relative z-10 pt-16 pb-12 px-6 text-center border-b border-[#E8E0D5]">
                 <motion.div
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -92,7 +92,7 @@ export default function CronogramaPage() {
                     transition={{ delay: 0.4, duration: 0.8 }}
                     className="w-12 h-[1px] bg-[#A0845C] mx-auto"
                 />
-            </header>
+            </section>
 
             {/* Info Bar */}
             <motion.div
