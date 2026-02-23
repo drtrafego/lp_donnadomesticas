@@ -97,12 +97,13 @@ export default function Home() {
             const data = await response.json();
 
             if (response.ok) {
+                const leadId = data.lead?.id || '';
                 // Tracking Lead
                 tracking.event({ action: 'generate_lead', category: 'Conversion', label: 'LP Mar2601' });
-                tracking.fbEvent('Lead', { content_name: 'Inscrição Casa Organizada', status: 'Success' });
+                tracking.fbEvent('Lead', { content_name: 'Inscrição Casa Organizada', status: 'Success' }, leadId);
 
                 // Redirecionar para a página de obrigado
-                router.push('/obrigado');
+                router.push(`/obrigado?lid=${leadId}`);
             } else {
                 alert('Erro ao enviar formulário: ' + (data.message || 'Tente novamente.'));
             }

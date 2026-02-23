@@ -29,8 +29,12 @@ export const event = ({ action, category, label, value }: { action: string; cate
 };
 
 // Facebook Pixel
-export const fbEvent = (name: string, options = {}) => {
+export const fbEvent = (name: string, options = {}, eventId?: string) => {
     if (typeof window.fbq !== 'undefined' && FB_PIXEL_ID) {
-        window.fbq('track', name, options);
+        if (eventId) {
+            window.fbq('track', name, options, { event_id: eventId });
+        } else {
+            window.fbq('track', name, options);
+        }
     }
 };

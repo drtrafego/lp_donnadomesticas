@@ -353,11 +353,15 @@ export async function POST(request: NextRequest) {
             const firstName = name.split(' ')[0];
             const hashedFirstName = await hashData(firstName);
 
+            // Event ID for deduplication
+            const eventId = (savedLead as any).id || Date.now().toString();
+
             const trackingPromises = [
                 // Meta CAPI
                 sendMetaCAPI('Lead',
                     { em: hashedEmail, ph: hashedPhone, fn: hashedFirstName, ip, ua: userAgent },
-                    { content_name: 'Inscrição Casa Organizada', value: 0, currency: 'BRL' }
+                    { content_name: 'Inscrição Casa Organizada', value: 0, currency: 'BRL' },
+                    eventId
                 ),
                 // GA4 Measurement Protocol
                 sendGA4MP('generate_lead', email, {

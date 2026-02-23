@@ -11,7 +11,7 @@ export const GA_API_SECRET = process.env.GA_API_SECRET;
 /**
  * Send event to Meta Conversions API (CAPI)
  */
-export async function sendMetaCAPI(eventName: string, userData: any, customData: any = {}) {
+export async function sendMetaCAPI(eventName: string, userData: any, customData: any = {}, eventId?: string) {
     if (!FB_PIXEL_ID || !FB_ACCESS_TOKEN) {
         console.warn('Meta CAPI: Missing FB_PIXEL_ID or FB_ACCESS_TOKEN');
         return;
@@ -23,6 +23,7 @@ export async function sendMetaCAPI(eventName: string, userData: any, customData:
                 {
                     event_name: eventName,
                     event_time: Math.floor(Date.now() / 1000),
+                    event_id: eventId,
                     action_source: 'website',
                     user_data: {
                         em: userData.em ? [userData.em] : undefined,
