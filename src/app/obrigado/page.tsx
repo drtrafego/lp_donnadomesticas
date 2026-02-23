@@ -2,7 +2,7 @@
 
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { CheckCircle2, MessageCircle, ArrowRight, Loader2 } from 'lucide-react';
+import * as tracking from '@/lib/tracking';
 
 // Link de exemplo - o usuário poderá trocar depois
 const WHATSAPP_COMMUNITY_LINK = 'https://chat.whatsapp.com/Exemplo';
@@ -13,6 +13,10 @@ export default function ThankYouPage() {
         const timer = setTimeout(() => {
             window.location.href = WHATSAPP_COMMUNITY_LINK;
         }, 2000);
+
+        // Tracking Lead on page load
+        tracking.event({ action: 'conversion_obrigado', category: 'Conversion', label: 'Page View Obrigado' });
+        tracking.fbEvent('Lead', { content_name: 'Inscrição Confirmada', status: 'Success' });
 
         return () => clearTimeout(timer);
     }, []);
