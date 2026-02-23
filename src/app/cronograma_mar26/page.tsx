@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import {
     Calendar,
@@ -27,7 +27,25 @@ const staggerContainer = {
     }
 };
 
+import * as tracking from '@/lib/tracking';
+
 export default function CronogramaPage() {
+    useEffect(() => {
+        const handleScroll = () => {
+            const scrollPercent = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight * 100;
+            const milestones = [25, 50, 75, 90];
+            milestones.forEach(m => {
+                const key = `scroll_cronograma_${m}`;
+                if (scrollPercent >= m && !(window as any)[key]) {
+                    (window as any)[key] = true;
+                    tracking.event({ action: 'scroll', category: 'Engagement', label: `${m}%`, value: m });
+                }
+            });
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
     return (
         <div className="min-h-screen bg-[#F7F3EE] text-[#1E1812] font-sans selection:bg-[#C9A87A]/30">
             {/* Grain Overlay */}
@@ -101,7 +119,7 @@ export default function CronogramaPage() {
             <main className="relative z-10 max-w-3xl mx-auto px-6 py-20">
 
                 {/* YouTube Video Section */}
-                <section className="mb-20">
+                <section id="youtube-player" className="mb-20">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -118,7 +136,7 @@ export default function CronogramaPage() {
                             />
                         </div>
                         <p className="text-[0.82rem] text-[#8C7B6E] leading-relaxed">
-                            Depois de entrar no vídeo, clique em <strong className="text-[#5C4A3A] font-medium">Definir lembrete</strong> ou ative o 🔔 no canal para não perder o início ao vivo.
+                            Clique no botão e ative o <strong className="text-[#5C4A3A] font-medium italic">LEMBRETE</strong>.
                         </p>
                     </motion.div>
                 </section>
@@ -199,7 +217,8 @@ export default function CronogramaPage() {
                         <div className="inline-block relative group">
                             <div className="absolute inset-0 bg-[#A0845C] translate-x-3 translate-y-3 group-hover:translate-x-0 group-hover:translate-y-0 transition-all duration-300 opacity-20" />
                             <a
-                                href="#"
+                                href="#youtube-player"
+                                onClick={() => tracking.event({ action: 'click_cta_youtube', category: 'Engagement', label: 'Cronograma' })}
                                 className="relative z-10 flex items-center gap-4 bg-[#5C4A3A] text-white px-10 py-6 text-sm font-bold tracking-[0.2em] uppercase hover:bg-[#A0845C] transition-colors duration-300"
                             >
                                 <span>Assistir ao vivo agora</span>

@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import * as tracking from '@/lib/tracking';
 import {
     ArrowRight,
     Star,
@@ -42,6 +43,17 @@ export default function Home() {
     useEffect(() => {
         const handleScroll = () => {
             setIsScrolled(window.scrollY > 20);
+
+            // Scroll tracking (GA4/Meta standard)
+            const scrollPercent = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight * 100;
+            const milestones = [25, 50, 75, 90];
+            milestones.forEach(m => {
+                const key = `scroll_${m}`;
+                if (scrollPercent >= m && !(window as any)[key]) {
+                    (window as any)[key] = true;
+                    tracking.event({ action: 'scroll', category: 'Engagement', label: `${m}%`, value: m });
+                }
+            });
         };
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
@@ -85,6 +97,10 @@ export default function Home() {
             const data = await response.json();
 
             if (response.ok) {
+                // Tracking Lead
+                tracking.event({ action: 'generate_lead', category: 'Conversion', label: 'LP Mar2601' });
+                tracking.fbEvent('Lead', { content_name: 'Inscrição Casa Organizada', status: 'Success' });
+
                 // Redirecionar para a página de obrigado
                 router.push('/obrigado');
             } else {
