@@ -2,6 +2,7 @@ import { neon } from '@neondatabase/serverless';
 import { NextRequest, NextResponse } from 'next/server';
 import { google } from 'googleapis';
 import nodemailer from 'nodemailer';
+import { hashData, sendMetaCAPI, sendGA4MP } from '@/lib/tracking-server';
 
 // Removendo inicialização global para evitar problemas de cache em serverless
 // const sql = neon(process.env.DATABASE_URL!);
@@ -340,17 +341,38 @@ export async function POST(request: NextRequest) {
         // O await Promise.all garante que o servidor não encerre antes de terminar o envio.
         // ADICIONADO TIMEOUT GLOBAL PARA TAREFAS SECUNDÁRIAS (4 segundos)
         try {
-            console.log('Iniciando tarefas de background (Email/Sheets) com timeout de 4s...');
-            const sheetsPromise = appendToSheet(savedLead);
-            // Email desativado para esta empresa conforme solicitação
-            // const emailPromise = sendEmailNotification(savedLead);
+            console.log('Iniciando tarefas de background (Tracking) com timeout de 4s...');
 
-            // Apenas Sheets
-            await withTimeout(sheetsPromise, 4000);
-            // await withTimeout(Promise.all([sheetsPromise, emailPromise]), 4000);
+            // Preparar dados para Tracking Server-Side
+            const userAgent = request.headers.get('user-agent') || '';
+            const ip = request.headers.get('x-forwarded-for')?.split(',')[0] || request.headers.get('x-real-ip') || '';
+
+            // Hashing sensitive data for Meta
+            const hashedEmail = await hashData(email);
+            const hashedPhone = await hashData(phone);
+            const firstName = name.split(' ')[0];
+            const hashedFirstName = await hashData(firstName);
+
+            const trackingPromises = [
+                // Meta CAPI
+                sendMetaCAPI('Lead',
+                    { em: hashedEmail, ph: hashedPhone, fn: hashedFirstName, ip, ua: userAgent },
+                    { content_name: 'Inscrição Casa Organizada', value: 0, currency: 'BRL' }
+                ),
+                // GA4 Measurement Protocol
+                sendGA4MP('generate_lead', email, {
+                    method: 'contact_form',
+                    page_location: page_path || '/',
+                    utm_source,
+                    utm_medium,
+                    utm_campaign
+                })
+            ];
+
+            await withTimeout(Promise.all(trackingPromises), 4000);
             console.log('Tarefas de background concluídas com sucesso.');
         } catch (bgError) {
-            console.error('Alerta: Tarefas secundárias (Sheets/Email) demoraram muito ou falharam:', bgError);
+            console.error('Alerta: Tarefas secundárias (Tracking) demoraram muito ou falharam:', bgError);
             // Não lançamos erro aqui para não falhar a resposta ao usuário, já que o lead foi salvo no banco.
         }
 
