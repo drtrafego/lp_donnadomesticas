@@ -100,6 +100,29 @@ export default function CronogramaPage() {
             {/* Main Content */}
             <main className="relative z-10 max-w-3xl mx-auto px-6 py-20">
 
+                {/* YouTube Video Section */}
+                <section className="mb-20">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="space-y-4"
+                    >
+                        <div className="relative w-full aspect-video bg-[#1E1812] shadow-2xl">
+                            <iframe
+                                src="https://www.youtube.com/embed/[ID_DO_VIDEO]"
+                                title="Sua Casa Organizada — Ao vivo"
+                                className="absolute inset-0 w-full h-full border-none"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowFullScreen
+                            />
+                        </div>
+                        <p className="text-[0.82rem] text-[#8C7B6E] leading-relaxed">
+                            Depois de entrar no vídeo, clique em <strong className="text-[#5C4A3A] font-medium">Definir lembrete</strong> ou ative o 🔔 no canal para não perder o início ao vivo.
+                        </p>
+                    </motion.div>
+                </section>
+
                 {/* Pillars Section */}
                 <section className="mb-20">
                     <motion.p
