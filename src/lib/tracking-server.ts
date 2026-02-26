@@ -25,6 +25,7 @@ export async function sendMetaCAPI(eventName: string, userData: any, customData:
                     event_time: Math.floor(Date.now() / 1000),
                     event_id: eventId,
                     action_source: 'website',
+                    event_source_url: userData.event_source_url,
                     user_data: {
                         em: userData.em ? [userData.em] : undefined,
                         ph: userData.ph ? [userData.ph] : undefined,

@@ -361,7 +361,16 @@ export async function POST(request: NextRequest) {
             const trackingPromises = [
                 // Meta CAPI
                 sendMetaCAPI('Lead',
-                    { em: hashedEmail, ph: hashedPhone, fn: hashedFirstName, ip, ua: userAgent, fbc, fbp },
+                    {
+                        em: hashedEmail,
+                        ph: hashedPhone,
+                        fn: hashedFirstName,
+                        ip,
+                        ua: userAgent,
+                        fbc,
+                        fbp,
+                        event_source_url: (request.headers.get('origin') || 'https://lp.donnadomesticas.com.br') + '/obrigado'
+                    },
                     { content_name: 'Inscrição Casa Organizada', value: 0, currency: 'BRL' },
                     eventId
                 ),
