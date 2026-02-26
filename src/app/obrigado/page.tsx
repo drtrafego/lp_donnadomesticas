@@ -15,14 +15,17 @@ function ThankYouContent() {
     const leadId = searchParams.get('lid') || '';
 
     useEffect(() => {
-        // Redirecionamento automático após 2 segundos
-        const timer = setTimeout(() => {
-            window.location.href = WHATSAPP_COMMUNITY_LINK;
-        }, 3000);
+        // Disparos Imediatos de Conversão
+        tracking.pageview('/obrigado');
+        tracking.fbEvent('PageView');
 
-        // Tracking Lead on page load with deduplication ID
         tracking.event({ action: 'conversion_obrigado', category: 'Conversion', label: 'Page View Obrigado' });
         tracking.fbEvent('Lead', { content_name: 'Inscrição Confirmada', status: 'Success' }, leadId);
+
+        // Redirecionamento automático após 3.5 segundos (tempo extra para garantir que os pixels disparem)
+        const timer = setTimeout(() => {
+            window.location.href = WHATSAPP_COMMUNITY_LINK;
+        }, 3500);
 
         return () => clearTimeout(timer);
     }, [leadId]);

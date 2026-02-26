@@ -49,7 +49,7 @@ export default function Analytics() {
             {/* Facebook Pixel */}
             {tracking.FB_PIXEL_ID && (
                 <Script
-                    id="fb-pixel"
+                    id="facebook-pixel"
                     strategy="afterInteractive"
                     dangerouslySetInnerHTML={{
                         __html: `
