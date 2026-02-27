@@ -39,6 +39,7 @@ export async function sendMetaCAPI(eventName: string, userData: any, customData:
                         client_user_agent: userData.ua,
                         fbc: userData.fbc,
                         fbp: userData.fbp,
+                        external_id: eventId ? [await hashData(eventId)] : undefined,
                     },
                     custom_data: customData,
                 },
