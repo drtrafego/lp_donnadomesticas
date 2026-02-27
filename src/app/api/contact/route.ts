@@ -358,21 +358,28 @@ export async function POST(request: NextRequest) {
             // Event ID for deduplication
             const eventId = (savedLead as any).id || Date.now().toString();
 
+            const origin = request.headers.get('origin') || 'https://lp.donnadomesticas.com.br';
+            const capiUserData = {
+                em: hashedEmail,
+                ph: hashedPhone,
+                fn: hashedFirstName,
+                ip,
+                ua: userAgent,
+                fbc,
+                fbp,
+                event_source_url: origin + '/obrigado'
+            };
+
             const trackingPromises = [
-                // Meta CAPI
-                sendMetaCAPI('Lead',
-                    {
-                        em: hashedEmail,
-                        ph: hashedPhone,
-                        fn: hashedFirstName,
-                        ip,
-                        ua: userAgent,
-                        fbc,
-                        fbp,
-                        event_source_url: (request.headers.get('origin') || 'https://lp.donnadomesticas.com.br') + '/obrigado'
-                    },
+                // Meta CAPI — Lead
+                sendMetaCAPI('Lead', capiUserData,
                     { content_name: 'Inscrição Casa Organizada' },
                     eventId
+                ),
+                // Meta CAPI — CompleteRegistration (para marcações de conversão por evento no Meta)
+                sendMetaCAPI('CompleteRegistration', capiUserData,
+                    { content_name: 'Inscrição Casa Organizada', status: 'Success' },
+                    `cr_${eventId}`
                 ),
                 // GA4 Measurement Protocol
                 sendGA4MP('generate_lead', email, {

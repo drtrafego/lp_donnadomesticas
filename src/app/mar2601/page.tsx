@@ -111,12 +111,15 @@ export default function Home() {
 
             if (response.ok) {
                 const leadId = data.lead?.id || '';
-                // Tracking Lead
+                // Tracking: disparar eventos ANTES de navegar (mais confiável que disparar na página de destino)
                 tracking.event({ action: 'generate_lead', category: 'Conversion', label: 'LP Mar2601' });
                 tracking.fbEvent('Lead', { content_name: 'Inscrição Casa Organizada', status: 'Success' }, leadId);
+                tracking.fbEvent('CompleteRegistration', { content_name: 'Inscrição Casa Organizada', status: 'Success' }, `cr_${leadId}`);
 
-                // Redirecionar para a página de obrigado
-                router.push(`/obrigado?lid=${leadId}`);
+                // Usar window.location.href (reload completo) em vez de router.push (SPA).
+                // O reload garante que o Meta Pixel reinicialize e dispare PageView com a URL /obrigado,
+                // permitindo que marcações por URL no Meta funcionem corretamente.
+                window.location.href = `/obrigado?lid=${leadId}`;
             } else {
                 alert('Erro ao enviar formulário: ' + (data.message || 'Tente novamente.'));
             }
