@@ -17,7 +17,10 @@ function ThankYouContent() {
     useEffect(() => {
         // Disparos Imediatos de Conversão
         tracking.pageview('/obrigado');
-        tracking.fbEvent('PageView');
+        tracking.fbEvent('PageView', {
+            page_path: '/obrigado',
+            page_location: window.location.href
+        });
 
         tracking.event({ action: 'conversion_obrigado', category: 'Conversion', label: 'Page View Obrigado' });
         tracking.fbEvent('Lead', { content_name: 'Inscrição Confirmada', status: 'Success' }, leadId);

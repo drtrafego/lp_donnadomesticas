@@ -17,12 +17,16 @@ export default function Analytics() {
             tracking.pageview(pathname);
 
             // Fix for Next.js App Router: Wait a tick for the browser History API to update the real URL
-            // otherwise Meta Pixel will read the old URL (e.g. /mar2601) instead of the new one (/obrigado).
+            // and explicitly pass the new URL so Meta Pixel doesn't read the old one.
             const timer = setTimeout(() => {
                 if (typeof window !== 'undefined' && typeof window.fbq !== 'undefined') {
-                    window.fbq('track', 'PageView');
+                    // We explicitly pass the URL over to force Meta to register the new location
+                    window.fbq('track', 'PageView', {
+                        page_path: pathname,
+                        page_location: window.location.href,
+                    });
                 }
-            }, 100);
+            }, 150);
 
             return () => clearTimeout(timer);
         }
