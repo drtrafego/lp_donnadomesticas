@@ -15,11 +15,16 @@ export default function Analytics() {
         if (pathname) {
             // Fire GA4 pageview on each route change
             tracking.pageview(pathname);
-            // Fire fbq PageView on each route change (SPA navigation)
-            // The initial PageView is already fired by the <head> script.
-            if (typeof window !== 'undefined' && typeof window.fbq !== 'undefined') {
-                window.fbq('track', 'PageView');
-            }
+
+            // Fix for Next.js App Router: Wait a tick for the browser History API to update the real URL
+            // otherwise Meta Pixel will read the old URL (e.g. /mar2601) instead of the new one (/obrigado).
+            const timer = setTimeout(() => {
+                if (typeof window !== 'undefined' && typeof window.fbq !== 'undefined') {
+                    window.fbq('track', 'PageView');
+                }
+            }, 100);
+
+            return () => clearTimeout(timer);
         }
     }, [pathname, searchParams]);
 
