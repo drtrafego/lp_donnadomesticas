@@ -77,6 +77,17 @@ export default function Home() {
             const utm_term = params.get('utm_term');
             const page_path = window.location.pathname;
 
+            // Ler fbc/fbp no cliente para garantir envio independente de cookies HTTP
+            const fbclid = params.get('fbclid');
+            const getCookieVal = (name: string) => {
+                const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+                return match ? decodeURIComponent(match[2]) : undefined;
+            };
+            const fbc = fbclid
+                ? `fb.1.${Math.floor(Date.now() / 1000)}.${fbclid}`
+                : getCookieVal('_fbc');
+            const fbp = getCookieVal('_fbp');
+
             const response = await fetch('/api/contact', {
                 method: 'POST',
                 headers: {
@@ -90,7 +101,9 @@ export default function Home() {
                     utm_medium,
                     utm_campaign,
                     utm_term,
-                    page_path
+                    page_path,
+                    fbc,
+                    fbp,
                 }),
             });
 

@@ -293,7 +293,7 @@ export const dynamic = 'force-dynamic';
 export async function POST(request: NextRequest) {
     try {
         console.log('--- INICIANDO PROCESSAMENTO DE LEAD (Versão: Produção Estável) ---');
-        const { name, email, phone, utm_source, utm_medium, utm_campaign, utm_term, page_path } = await request.json();
+        const { name, email, phone, utm_source, utm_medium, utm_campaign, utm_term, page_path, fbc: fbcFromBody, fbp: fbpFromBody } = await request.json();
 
         if (!name || !email || !phone) {
             return NextResponse.json({ message: 'Nome, email e telefone são obrigatórios.' }, { status: 400 });
@@ -346,8 +346,8 @@ export async function POST(request: NextRequest) {
             // Preparar dados para Tracking Server-Side
             const userAgent = request.headers.get('user-agent') || '';
             const ip = request.headers.get('x-forwarded-for')?.split(',')[0] || request.headers.get('x-real-ip') || '';
-            const fbc = request.cookies.get('_fbc')?.value;
-            const fbp = request.cookies.get('_fbp')?.value;
+            const fbc = fbcFromBody || request.cookies.get('_fbc')?.value;
+            const fbp = fbpFromBody || request.cookies.get('_fbp')?.value;
 
             // Hashing sensitive data for Meta
             const hashedEmail = await hashData(email);
@@ -371,7 +371,7 @@ export async function POST(request: NextRequest) {
                         fbp,
                         event_source_url: (request.headers.get('origin') || 'https://lp.donnadomesticas.com.br') + '/obrigado'
                     },
-                    { content_name: 'Inscrição Casa Organizada', value: 0, currency: 'BRL' },
+                    { content_name: 'Inscrição Casa Organizada' },
                     eventId
                 ),
                 // GA4 Measurement Protocol
