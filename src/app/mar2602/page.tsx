@@ -75,6 +75,7 @@ export default function Home() {
             const utm_medium = params.get('utm_medium');
             const utm_campaign = params.get('utm_campaign');
             const utm_term = params.get('utm_term');
+            const utm_content = params.get('utm_content');
             const page_path = window.location.pathname;
 
             // Ler fbc/fbp no cliente para garantir envio independente de cookies HTTP
@@ -101,6 +102,7 @@ export default function Home() {
                     utm_medium,
                     utm_campaign,
                     utm_term,
+                    utm_content,
                     page_path,
                     fbc,
                     fbp,

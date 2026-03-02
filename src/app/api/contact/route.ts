@@ -61,6 +61,7 @@ async function sendEmailNotification(lead: any) {
         Mídia: ${lead.utm_medium || 'N/A'}
         Campanha: ${lead.utm_campaign || 'N/A'}
         Termo: ${lead.utm_term || 'N/A'}
+        Conteúdo: ${lead.utm_content || 'N/A'}
         Página: ${lead.page_path || 'N/A'}
         
         Data: ${new Date().toLocaleString('pt-BR')}
@@ -99,6 +100,10 @@ async function sendEmailNotification(lead: any) {
               <td style="padding: 10px; border-bottom: 1px solid #ddd; background-color: #f9f9f9;">${lead.utm_term || '-'}</td>
             </tr>
             <tr>
+              <td style="padding: 10px; border-bottom: 1px solid #ddd; background-color: #f9f9f9;"><strong>Conteúdo:</strong></td>
+              <td style="padding: 10px; border-bottom: 1px solid #ddd; background-color: #f9f9f9;">${lead.utm_content || '-'}</td>
+            </tr>
+            <tr>
               <td style="padding: 10px; border-bottom: 1px solid #ddd; background-color: #f9f9f9;"><strong>Página:</strong></td>
               <td style="padding: 10px; border-bottom: 1px solid #ddd; background-color: #f9f9f9;">${lead.page_path || '-'}</td>
             </tr>
@@ -122,7 +127,7 @@ async function sendEmailNotification(lead: any) {
 
 // Função para escrever o cabeçalho
 async function writeHeader(sheets: any, spreadsheetId: string) {
-    const header = [['id', 'name', 'email', 'whatsapp', 'created_at', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'page_path']];
+    const header = [['id', 'name', 'email', 'whatsapp', 'created_at', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content', 'page_path']];
     await sheets.spreadsheets.values.update({
         spreadsheetId,
         range: 'A1',
@@ -187,6 +192,7 @@ async function appendToSheet(lead: any) {
                 lead.utm_medium || '',
                 lead.utm_campaign || '',
                 lead.utm_term || '',
+                lead.utm_content || '',
                 lead.page_path || ''
             ],
         ];
@@ -235,17 +241,21 @@ async function saveToNeon(lead: any) {
 
         // 2. Inserir Lead com os campos obrigatórios
         // Definimos status como 'Novo' e usamos os IDs recuperados
+
+        // Auto-Migration Temporária: Adicionar coluna utm_content caso não exista
+        await sql`ALTER TABLE public.leads ADD COLUMN IF NOT EXISTS utm_content text;`;
+
         // Removido ON CONFLICT pois a tabela não tem constraint UNIQUE no email
         const result = await sql`
             INSERT INTO public.leads (
                 name, email, whatsapp, created_at, 
                 status, column_id, organization_id,
-                utm_source, utm_medium, utm_campaign, utm_term, page_path
+                utm_source, utm_medium, utm_campaign, utm_term, utm_content, page_path
             )
             VALUES (
                 ${lead.name}, ${lead.email}, ${lead.phone}, ${lead.created_at}, 
                 'Novo', ${columnId}, ${organizationId},
-                ${lead.utm_source || null}, ${lead.utm_medium || null}, ${lead.utm_campaign || null}, ${lead.utm_term || null}, ${lead.page_path || null}
+                ${lead.utm_source || null}, ${lead.utm_medium || null}, ${lead.utm_campaign || null}, ${lead.utm_term || null}, ${lead.utm_content || null}, ${lead.page_path || null}
             )
             RETURNING *;
         `;
@@ -293,7 +303,7 @@ export const dynamic = 'force-dynamic';
 export async function POST(request: NextRequest) {
     try {
         console.log('--- INICIANDO PROCESSAMENTO DE LEAD (Versão: Produção Estável) ---');
-        const { name, email, phone, utm_source, utm_medium, utm_campaign, utm_term, page_path, fbc: fbcFromBody, fbp: fbpFromBody } = await request.json();
+        const { name, email, phone, utm_source, utm_medium, utm_campaign, utm_term, utm_content, page_path, fbc: fbcFromBody, fbp: fbpFromBody } = await request.json();
 
         if (!name || !email || !phone) {
             return NextResponse.json({ message: 'Nome, email e telefone são obrigatórios.' }, { status: 400 });
@@ -308,6 +318,7 @@ export async function POST(request: NextRequest) {
             utm_medium,
             utm_campaign,
             utm_term,
+            utm_content,
             page_path,
             created_at: new Date().toISOString(),
         };
@@ -332,6 +343,7 @@ export async function POST(request: NextRequest) {
                 utm_medium: initialLead.utm_medium,
                 utm_campaign: initialLead.utm_campaign,
                 utm_term: initialLead.utm_term,
+                utm_content: initialLead.utm_content,
                 page_path: initialLead.page_path
             };
         }
@@ -387,7 +399,8 @@ export async function POST(request: NextRequest) {
                     page_location: page_path || '/',
                     utm_source,
                     utm_medium,
-                    utm_campaign
+                    utm_campaign,
+                    utm_content
                 })
             ];
 

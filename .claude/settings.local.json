@@ -1,0 +1,16 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "WebFetch(domain:www.3zerodigital.com)",
+      "WebFetch(domain:news.ycombinator.com)",
+      "WebFetch(domain:docs.funnelflux.com)",
+      "WebFetch(domain:cloak.ist)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:plainenglish.io)",
+      "WebFetch(domain:dev.to)"
+    ]
+  }
+}
