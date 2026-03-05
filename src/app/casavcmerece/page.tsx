@@ -157,7 +157,7 @@ export default function CasaVoceMerecePage() {
                             Fundou a Donna Domésticas com um propósito: levar MÉTODO e consciência para dentro dos lares brasileiros.
                         </p>
                         <blockquote className="text-2xl font-bold text-blue-900 italic border-l-4 border-blue-600 pl-6 mt-8">
-                            "Casa alinhada não prende. Ela liberta."
+                            &ldquo;Casa alinhada não prende. Ela liberta.&rdquo;
                         </blockquote>
                     </div>
                 </div>
@@ -246,7 +246,7 @@ export default function CasaVoceMerecePage() {
                     <div className="bg-white p-10 rounded-3xl shadow-lg border border-slate-100 text-center relative">
                         <Star className="text-amber-400 w-12 h-12 mx-auto mb-6 fill-amber-400" />
                         <p className="text-2xl text-slate-700 italic font-light leading-relaxed mb-6">
-                            "O conteúdo real de depoimento entrará aqui antes da publicação oficial. Deve transmitir a transformação gerada pelo método de forma tocante e autêntica."
+                            &ldquo;O conteúdo real de depoimento entrará aqui antes da publicação oficial. Deve transmitir a transformação gerada pelo método de forma tocante e autêntica.&rdquo;
                         </p>
                         <div>
                             <p className="font-bold text-slate-900 text-lg">Aluna do Método</p>
