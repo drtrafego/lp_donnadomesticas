@@ -108,15 +108,15 @@ export default function CasaVoceMerece2Page() {
         .serif { font-family: 'Playfair Display', Georgia, serif; }
 
         /* HERO */
-        .hero { position: relative; min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; overflow: hidden; }
-        @media (max-width: 900px) { .hero { grid-template-columns: 1fr; } }
+        .hero { position: relative; height: 100vh; min-height: 600px; display: grid; grid-template-columns: 1fr 1fr; overflow: hidden; }
+        @media (max-width: 900px) { .hero { height: auto; min-height: unset; grid-template-columns: 1fr; } }
 
-        .hero-text { display: flex; flex-direction: column; justify-content: center; padding: 80px 64px; position: relative; z-index: 2; background: #F8F4EE; }
-        @media (max-width: 900px) { .hero-text { padding: 80px 32px 48px; order: 2; } }
+        .hero-text { display: flex; flex-direction: column; justify-content: center; padding: 80px 64px; position: relative; z-index: 2; background: #F8F4EE; height: 100%; }
+        @media (max-width: 900px) { .hero-text { height: auto; padding: 60px 32px 48px; order: 2; } }
 
-        .hero-image { position: relative; overflow: hidden; }
-        .hero-image::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to right, #F8F4EE 0%, transparent 30%); z-index: 1; pointer-events: none; }
-        @media (max-width: 900px) { .hero-image { height: 55vw; min-height: 300px; order: 1; } .hero-image::after { background: linear-gradient(to top, #F8F4EE 0%, transparent 40%); } }
+        .hero-image { position: relative; overflow: hidden; height: 100%; }
+        .hero-image::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to right, #F8F4EE 0%, transparent 25%); z-index: 1; pointer-events: none; }
+        @media (max-width: 900px) { .hero-image { height: 60vw; min-height: 320px; order: 1; } .hero-image::after { background: linear-gradient(to top, #F8F4EE 0%, transparent 40%); } }
 
         .badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; border: 1px solid #C4714A40; background: #C4714A10; border-radius: 40px; font-size: 11px; font-weight: 600; color: #C4714A; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 28px; }
         .badge-dot { width: 6px; height: 6px; border-radius: 50%; background: #C4714A; animation: pulse 1.8s infinite; }
