@@ -1,5 +1,5 @@
 import React from "react";
-import { CheckCircle2, ChevronDown, Clock, ShieldCheck, Star } from "lucide-react";
+import { CheckCircle2, ChevronDown, ShieldCheck, Star } from "lucide-react";
 import Image from "next/image";
 
 export default function CasaVoceMerecePage() {
@@ -140,12 +140,15 @@ export default function CasaVoceMerecePage() {
             <section className="py-24 px-6 bg-slate-100">
                 <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12">
                     <div className="md:w-1/2">
-                        <div className="aspect-square relative rounded-[2rem] overflow-hidden bg-slate-300 shadow-xl">
-                            {/* Use a real image of Luciane if available, placeholder for now */}
-                            <div className="absolute inset-0 bg-blue-900/10 mix-blend-multiply"></div>
-                            <div className="absolute inset-0 flex items-center justify-center text-slate-500 font-medium">
-                                [Foto da Luciane]
-                            </div>
+                        <div className="aspect-square relative rounded-[2rem] overflow-hidden shadow-xl">
+                            <Image
+                                src="/Luciane.png"
+                                alt="Luciane – Fundadora da Donna Domésticas"
+                                fill
+                                className="object-cover object-top"
+                                sizes="(max-width: 768px) 100vw, 50vw"
+                                priority
+                            />
                         </div>
                     </div>
                     <div className="md:w-1/2 space-y-6">
