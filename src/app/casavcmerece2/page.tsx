@@ -32,16 +32,16 @@ const bonuses = [
         tagColor: "#8B5E3C",
         icon: "⏰",
         title: "Protocolo Anti-Sobrecarga",
-        desc: "O Plano de Reorganização Rápida para o dia em que tudo sair do eixo. 1 aula inicial, Planner 30 dias, PDF de orientação e 4 áudios guiados.",
-        detail: "Disponível apenas hoje",
+        desc: "O Plano de Reorganização Rápida Casa com Direção, para o dia em que tudo sair do eixo. Inclui: 1 aula inicial, Planner com os 30 primeiros dias passo a passo, PDF com toda orientação necessária e 4 áudios — um para cada semana. Para quando a vida acontecer e você precisar recuperar o controle com inteligência. Não com desespero. Com método.",
+        detail: "Disponível apenas para quem entrar até 23:59 de hoje.",
     },
     {
         tag: "PRIMEIRAS 24H",
         tagColor: "#9B6B47",
         icon: "⚡",
-        title: "Encontro de Implementação",
-        desc: "Um encontro prático onde a Luciane mostra o Método sendo aplicado em casas reais. Você vai ver o MÉTODO funcionando, não só aprender sobre ele.",
-        detail: "Encerra em 24 horas",
+        title: "Encontro Fechado de Implementação ao Vivo",
+        desc: "Um encontro prático onde a Luciane mostra o Método Casa com Direção sendo aplicado em casas reais. Você vai ver o MÉTODO funcionando, não só aprender sobre ele. Você não vai fazer isso sozinha.",
+        detail: "Disponível apenas para quem entrar nas primeiras 24 horas.",
     },
 ];
 
@@ -525,6 +525,9 @@ export default function CasaVoceMerece2Page() {
                                 </div>
                             ))}
                         </div>
+                        <p className="fade-up delay-2" style={{ fontSize: "0.95rem", color: "rgba(255,255,255,0.7)", marginBottom: "24px" }}>
+                            Depois desses prazos, o curso continua disponível, mas os bônus não.
+                        </p>
                         <a href="#oferta" className="btn-white fade-up delay-3">Garantir minha vaga com os bônus</a>
                     </div>
                 </div>

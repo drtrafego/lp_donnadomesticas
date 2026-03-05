@@ -222,7 +222,10 @@ export default function CasaVoceMerecePage() {
                                 <li className="flex items-center"><CheckCircle2 className="w-4 h-4 text-green-400 mr-2" /> 4 áudios guiados</li>
                             </ul>
                             <p className="text-sm font-medium text-amber-300 relative z-10">
-                                Para quando a vida acontecer e você precisar recuperar o controle com inteligência. Não com desespero.
+                                Para quando a vida acontecer e você precisar recuperar o controle com inteligência. Não com desespero. Com método.
+                            </p>
+                            <p className="text-xs text-slate-500 mt-2 relative z-10">
+                                Disponível apenas para quem entrar até 23:59 de hoje.
                             </p>
                         </div>
 
