@@ -408,6 +408,12 @@ export default function CasaVoceMerece2Page() {
                             </li>
                         ))}
                     </ul>
+                    <div className="fade-up delay-2" style={{ textAlign: "center", marginTop: "56px" }}>
+                        <a href="https://pay.hotmart.com/I104783208J?bid=1773150844499" className="btn-primary">
+                            Quero entrar agora
+                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3L13 8L8 13M3 8H13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
+                        </a>
+                    </div>
                 </div>
             </section>
 
@@ -507,31 +513,7 @@ export default function CasaVoceMerece2Page() {
                 </div>
             </section>
 
-            {/* ── URGENCY ── */}
-            <section className="section urgency-section">
-                <div className="container">
-                    <div className="urgency-inner">
-                        <span className="section-label fade-up" style={{ color: "rgba(255,255,255,0.6)", textAlign: "center", display: "block" }}>Lembra dos bônus?</span>
-                        <h2 className="fade-up delay-1">Os prazos são reais.</h2>
-                        <div className="urgency-list fade-up delay-2">
-                            {[
-                                { icon: "🥇", text: <>Mentoria individual: <strong>5 vagas. Estão sendo preenchidas.</strong></> },
-                                { icon: "⏰", text: <>Protocolo Anti-Sobrecarga: <strong>encerra às 23:59 de hoje.</strong></> },
-                                { icon: "⚡", text: <>Encontro de Implementação: <strong>encerra nas primeiras 24 horas.</strong></> },
-                            ].map((u, i) => (
-                                <div key={i} className="urgency-item">
-                                    <span className="urgency-item-icon">{u.icon}</span>
-                                    <p>{u.text}</p>
-                                </div>
-                            ))}
-                        </div>
-                        <p className="fade-up delay-2" style={{ fontSize: "0.95rem", color: "rgba(255,255,255,0.7)", marginBottom: "24px" }}>
-                            Depois desses prazos, o curso continua disponível, mas os bônus não.
-                        </p>
-                        <a href="https://pay.hotmart.com/I104783208J?bid=1773150844499" className="btn-white fade-up delay-3">Garantir minha vaga com os bônus</a>
-                    </div>
-                </div>
-            </section>
+
 
             {/* ── FAQ ── */}
             <section className="section">
