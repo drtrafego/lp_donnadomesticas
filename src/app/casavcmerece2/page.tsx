@@ -289,7 +289,7 @@ export default function CasaVoceMerece2Page() {
                         O Método Casa com Direção, testado em 23 anos de casas reais, finalmente disponível para você aplicar na sua rotina, do jeito certo, com acompanhamento.
                     </p>
                     <div className="fade-up delay-3">
-                        <a href="#oferta" className="btn-primary">
+                        <a href="https://pay.hotmart.com/I104783208J?bid=1773150844499" className="btn-primary">
                             Quero entrar agora
                             <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3L13 8L8 13M3 8H13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
                         </a>
@@ -494,7 +494,7 @@ export default function CasaVoceMerece2Page() {
                                 <p className="or">ou</p>
                                 <p className="full">R$ 497 à vista</p>
                             </div>
-                            <a href="#" className="btn-gold">Quero entrar agora e garantir meus bônus</a>
+                            <a href="https://pay.hotmart.com/I104783208J?bid=1773150844499" className="btn-gold">Quero entrar agora e garantir meus bônus</a>
                             <div className="guarantee">
                                 <div className="guarantee-icon">🛡</div>
                                 <div className="guarantee-text">
@@ -528,7 +528,7 @@ export default function CasaVoceMerece2Page() {
                         <p className="fade-up delay-2" style={{ fontSize: "0.95rem", color: "rgba(255,255,255,0.7)", marginBottom: "24px" }}>
                             Depois desses prazos, o curso continua disponível, mas os bônus não.
                         </p>
-                        <a href="#oferta" className="btn-white fade-up delay-3">Garantir minha vaga com os bônus</a>
+                        <a href="https://pay.hotmart.com/I104783208J?bid=1773150844499" className="btn-white fade-up delay-3">Garantir minha vaga com os bônus</a>
                     </div>
                 </div>
             </section>
@@ -569,7 +569,7 @@ export default function CasaVoceMerece2Page() {
                             Ou pode entrar agora, garantir seus bônus e começar a semana que vem com método, com direção e com a certeza de que dessa vez é diferente.
                         </p>
                         <div className="fade-up delay-3">
-                            <a href="#oferta" className="btn-gold" style={{ display: "inline-block", maxWidth: "480px" }}>
+                            <a href="https://pay.hotmart.com/I104783208J?bid=1773150844499" className="btn-gold" style={{ display: "inline-block", maxWidth: "480px" }}>
                                 Entrar agora em A Casa que Você Merece
                             </a>
                             <div className="price-tag" style={{ justifyContent: "center", color: "#4A3E3C" }}>
